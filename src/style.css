@@ -1,73 +1,72 @@
 *{
-    box-sizing: border-box;
-    margin: 0;
     padding: 0;
 }
-
-/*первый список*/
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-btn {
-    width: 130px;
-    height: 50px;
-
-    border-radius: 10px;
-    background-color: #d4f1b3;
-    border: none;
-    cursor: pointer;
-}
-
-/*dropdown-list Выпадающий список*/
-.dropdown-list {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
+ html,body{
+    height: 100%;
     width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 0 0 10px 10px;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+ *,*:before,*:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  :focus,:active{outline: none;}
+  a:focus,a:active{outline: none;}
+  
+  input,button,textarea{font-family:inherit;}
+  
+  input::-ms-clear{display: none;}
+  button{cursor: pointer;}
+  button::-moz-focus-inner {padding:0;border:0;}
+  a, a:visited{text-decoration: none;}
+  a:hover{text-decoration: none;}
+  ul li{list-style: none;}
+  
+  h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+  /* обнуляющий код */
+
+body {
+    padding-top: 15px;
 }
 
- /* Ссылки на доски */
-.dropdown-list a {
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
+.header_container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1200px;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.dropdown-list a:last-child {
-    border-radius: 0 0 10px 10px;
+.pin-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-/*Эффекты при наведении*/
-.dropdown-list a:hover {
-    background-color: #ddd;
+.search {
+    padding: 0 35px;
+    width: 70%;
+    border-radius: 24px;
 }
-
-.dropdown:hover .dropdown-list {
-    display: block;
+.background_search{
+    background: url(./icons/lens.svg) no-repeat , #ddd;
+    background-position: 1% 50%;
 }
-
-.dropdown:hover .dropdown-btn {
-    background-color: #3e8e41;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+.search:hover {
+    background-color: #D3D3D3;
 }
-
-.dropdown-btn:hover,
-.dropdown:hover .dropdown-btn {
-    border-radius: 10px 10px 0 0;
-}
-
-/*второй список*/
-.dropdown2 {
+.dropdown {
+    width: 20%;
     position: relative;
     display: inline-block;
 }
-
 select {
     display: inline-block;
     width: 130px;
@@ -79,3 +78,5 @@ select {
     padding-left: 10px;
     cursor: pointer;
 }
+
+
