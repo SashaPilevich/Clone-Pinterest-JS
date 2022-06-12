@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,30 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
+
+
+    
+
+=======
     <header class="header">
         <div class="header_container">
             <div class="pin-icon"><a href="index.html"><img src="icons/pinterest.ico" alt=""></a></div>
             <input type="text" class="search background_search" placeholder="Поиск">
-            <div class="drop-down_menu"></div> 
+            <div class="dropdown">
+            <form id="list" name="dropdown-form">
+            <select name="dropdown-list" form="list">
+                <option selected>Выбор доски</option>
+                <option>Доска 1</option>
+                <option>Доска 2</option>
+                <option>Доска 3</option>
+            </select>
+        </form>
+    </div>
         </div>
     </header>
     <script src="script.js"></script>
 </body>
+
 </html>
