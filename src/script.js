@@ -9,7 +9,38 @@ for (let key in images) {
     height: auto;
     margin:1.5%;
     `;
+
+    let hoverMenu = document.createElement('div');
+    hoverMenu.classList.add('hoverMenu');
+
+    const btnStyle = `
+    width:150px;
+    height:50px;
+    border-radius: 40px;
+    color: white;
+    font-family: Open sans, 'sans-serif';
+    font-size: 14px;
+    background-color:brown;
+    cursor:pointer;
+    border: none;`;
+
+    let btnAdd = document.createElement('button');
+    btnAdd.innerHTML = 'Добавить на доску';
+    btnAdd.style.cssText = btnStyle;
+    
+
+    let btnPin = document.createElement('button');
+    btnPin.innerHTML = 'Скрыть пин со страницы';
+    btnPin.style.cssText = btnStyle;
+
+    let btnComplaine = document.createElement('button');
+    btnComplaine.innerHTML = 'Пожаловаться';
+    btnComplaine.style.cssText = btnStyle;
+
+    hoverMenu.append(btnAdd, btnPin, btnComplaine) 
+
     let imgContainer = document.createElement('div');
+    imgContainer.classList.add('imgContainer');
     let img = document.createElement('img');
     img.classList.add('image');
     img.setAttribute('data-key', key);
@@ -47,7 +78,7 @@ for (let key in images) {
     
     imageOut.append(wrapper);
     wrapper.append(imgContainer, about);
-    imgContainer.append(img)
+    imgContainer.append(img,hoverMenu);
     about.append(avatar, info) 
 }
 
