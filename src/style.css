@@ -1,12 +1,18 @@
 *{
-    padding: 0;
+box-sizing:border-box;
+margin: 0;
+padding: 0;
 }
+
  html,body{
     height: 100%;
     width: 100%;
+    color: black;
+    font-family: 'Raleway', 'sans-serif';
+    font-weight: normal;
     font-size: 100%;
     line-height: 1;
-    font-size: 14px;
+    font-size: 16px;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -31,10 +37,6 @@
   h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
   /* обнуляющий код */
-
-body {
-    padding-top: 15px;
-}
 
 .header_container {
     margin: 0 auto;
@@ -77,6 +79,40 @@ select {
     border: none;
     padding-left: 10px;
     cursor: pointer;
+}
+
+.container{
+    margin: 0 auto;
+    padding: 15px 15px;
+    
+}
+
+.imageOut{
+    max-width:1500px;
+    margin:0 auto;
+    position:relative;
+    /* min-height:100vh; */
+}
+
+.imgContainer {
+    position: relative;
+    cursor: pointer; 
+}
+.hoverMenu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top:0;
+    left:0;
+    background:linear-gradient(360deg, rgba(37, 36, 35, 0.9) 0%, rgba(83, 26, 26, 0.9) 100% );
+    border-radius: 20px;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+.imgContainer:hover .hoverMenu {
+    display: flex;
 }
 
 
