@@ -82,9 +82,14 @@ for (let key in images) {
     about.append(avatar, info) 
 }
 
-
-$('.imageOut').masonry({
-    itemSelector: '.wrapper',
+$(document).ready(function() {
+    let container = $(".imageOut");
+    container.imagesLoaded(function() {
+        container.masonry({
+            columnWidth: ".wrapper",
+            itemSelector: ".wrapper"
+        });
+    });
 });
 
 
