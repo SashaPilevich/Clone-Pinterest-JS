@@ -1,47 +1,20 @@
 const root = document.querySelector('#root');
 const imageOut = document.querySelector('.imageOut');
+const sizer = document.querySelector('.sizer');
+let wrapper;
+let hoverMenu;
+let btnAdd;
+let btnPin;
+let btnComplaine;
+let imgContainer;
+let img;
+let avatar;
+let about;
+let info;
 
 for (let key in images) {
-    let wrapper = document.createElement('div');
-    wrapper.classList.add('wrapper');
-    wrapper.style.cssText = `
-    width:17%;
-    height: auto;
-    margin:1.5%;
-    `;
-
-    let hoverMenu = document.createElement('div');
-    hoverMenu.classList.add('hoverMenu');
-
-    const btnStyle = `
-    width:150px;
-    height:50px;
-    border-radius: 40px;
-    color: white;
-    font-family: Open sans, 'sans-serif';
-    font-size: 14px;
-    background-color:brown;
-    cursor:pointer;
-    border: none;`;
-
-    let btnAdd = document.createElement('button');
-    btnAdd.innerHTML = 'Добавить на доску';
-    btnAdd.style.cssText = btnStyle;
-    
-
-    let btnPin = document.createElement('button');
-    btnPin.innerHTML = 'Скрыть пин со страницы';
-    btnPin.style.cssText = btnStyle;
-
-    let btnComplaine = document.createElement('button');
-    btnComplaine.innerHTML = 'Пожаловаться';
-    btnComplaine.style.cssText = btnStyle;
-
-    hoverMenu.append(btnAdd, btnPin, btnComplaine) 
-
-    let imgContainer = document.createElement('div');
-    imgContainer.classList.add('imgContainer');
-    let img = document.createElement('img');
+    createPinterest();
+    img = document.createElement('img');
     img.classList.add('image');
     img.setAttribute('data-key', key);
     img.src = 'images/'+key+'.jpg';
@@ -51,8 +24,64 @@ for (let key in images) {
     height: auto;
     border-radius:20px;
     `;
+
+    avatar = document.createElement('img');
+    avatar.setAttribute('data-key',images[key]['avatar'] );
+    avatar.classList.add('bkgImage');
+    avatar.src = 'avatar/'+images[key]['avatar']+'.jpg';
+    avatar.style.cssText = `
+    margin-right: 10px;
+    width: 20%;
+    height:20%;
+    border-radius: 50%;
+    `;
+
+    info = document.createElement('h5');
+    info.textContent = images[key]['description'];
+
+    about.append(avatar, info);
+    wrapper.append(about);
+    imgContainer.append(img);
+}
+
+function createPinterest() {
+    wrapper = document.createElement('div');
+    wrapper.classList.add('wrapper');
+
+    hoverMenu = document.createElement('div');
+    hoverMenu.classList.add('hoverMenu');
+
+    const btnStyle = `
+    width:70%;
+    height:20%;
+    border-radius: 40px;
+    color: white;
+    font-family: Open sans, 'sans-serif';
+    font-size: 14px;
+    background-color:brown;
+    cursor:pointer;
+    border: none;
+    `;
+
+    btnAdd = document.createElement('button');
+    btnAdd.classList.add('btnAdd');
+    btnAdd.textContent = 'Добавить на доску';
+    btnAdd.style.cssText = btnStyle;
     
-    let about = document.createElement('div');
+    btnPin = document.createElement('button');
+    btnPin.classList.add('btnPin');
+    btnPin.textContent = 'Скрыть пин со страницы';
+    btnPin.style.cssText = btnStyle;
+
+    btnComplaine = document.createElement('button');
+    btnComplaine.classList.add('btnComplaine');
+    btnComplaine.textContent = 'Пожаловаться';
+    btnComplaine.style.cssText = btnStyle;
+    
+    imgContainer = document.createElement('div');
+    imgContainer.classList.add('imgContainer');
+
+    about = document.createElement('div');
     about.classList.add('about')
     about.style.cssText = `
     display: flex;
@@ -60,41 +89,24 @@ for (let key in images) {
     color: black;
     font-family: 'Raleway', 'sans-serif';
     font-weight: normal;
-    font-size:16px;
+    font-size:14px;
     `;
-
-    let avatar = document.createElement('img');
-    avatar.setAttribute('data-key',images[key]['avatar'] );
-    avatar.src = 'avatar/'+images[key]['avatar']+'.jpg';
-    avatar.style.cssText = `
-    margin-right: 10px;
-    width: 50px;
-    height:50px;
-    border-radius: 50%;
-    `;
-
-    let info = document.createElement('h5');
-    info.textContent = images[key]['description'];
     
-    imageOut.append(wrapper);
-    wrapper.append(imgContainer, about);
-    imgContainer.append(img,hoverMenu);
-    about.append(avatar, info) 
+    sizer.append(wrapper);
+    wrapper.append(imgContainer);
+    imgContainer.append(hoverMenu);
+    hoverMenu.append(btnAdd, btnPin, btnComplaine);
 }
 
 $(document).ready(function() {
     let container = $(".imageOut");
     container.imagesLoaded(function() {
         container.masonry({
-            columnWidth: ".wrapper",
-            itemSelector: ".wrapper"
+            itemSelector: ".wrapper",
+            columnWidth: ".sizer",
         });
     });
 });
-
-
-
-
 
 
 

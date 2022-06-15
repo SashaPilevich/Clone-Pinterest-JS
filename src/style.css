@@ -91,11 +91,20 @@ select {
     padding: 15px 15px;
     
 }
+.sizer {
+    width: 17%;
+}
+.wrapper {
+    width: 17%;
+    height: auto;
+    margin: 1%;
+   
+}
 .imageOut{
-    max-width:1400px;
-    margin:0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
     position:relative;
-    /* min-height:100vh; */
+    column-count: 5;
 }
 .imgContainer {
     position: relative;
