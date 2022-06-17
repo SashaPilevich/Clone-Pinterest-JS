@@ -14,7 +14,41 @@ let info;
 
 
 // images.forEach((item) => {}на случай использования массива объектов
+// images.forEach((item) => {
+//     createPinterest();
+//     setGallery(images);
+//     img = document.createElement('img');
+//     img.classList.add('image');
+//     img.setAttribute('data-key', item.name);
+//     img.src = 'images/'+item.name+'.jpg';
+//     img.style.cssText = `
+//     object-fit: cover;
+//     width:100%;
+//     height: auto;
+//     border-radius:20px;
+//     `;
+    
+//     avatar = document.createElement('img');
+//     avatar.setAttribute('data-key',item.avatar );
+//     avatar.classList.add('bkgImage');
+//     avatar.src = 'avatar/'+item.avatar+'.jpg';
+//     avatar.style.cssText = `
+//     margin-right: 10px;
+//     width: 20%;
+//     height:20%;
+//     border-radius: 50%;
+//     `;
 
+//     info = document.createElement('h5');
+//     info.textContent = item.description;
+    
+    
+//     about.append(avatar, info);
+//     wrapper.append(about);
+//     imgContainer.append(img);
+//     imgContainer.append(hoverMenu);
+    
+// });
 for (let key in images) {
     createPinterest();
     img = document.createElement('img');
