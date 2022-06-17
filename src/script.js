@@ -12,6 +12,9 @@ let avatar;
 let about;
 let info;
 
+
+// images.forEach((item) => {}на случай использования массива объектов
+
 for (let key in images) {
     createPinterest();
     img = document.createElement('img');
@@ -98,6 +101,23 @@ function createPinterest() {
     hoverMenu.append(btnAdd, btnPin, btnComplaine);
 }
 
+//скрыть пин
+imageOut.addEventListener('click', (event) => {
+    if (event.target.className != 'btnPin') return;
+
+    let pane = event.target.closest('.wrapper');
+    pane.style.opacity = '0.9';
+    pane.style.position = 'absolute';
+
+    let hoverPin = document.createElement('div');
+    hoverPin.classList.add('hoverPin')
+    hoverPin.innerHTML = 'Вы больше не увидите этот пин';
+    hoverPin.style.cssText = hoverPin;
+    
+    pane.append(hoverPin);
+});
+
+//подключение masonry
 $(document).ready(function() {
     let container = $(".imageOut");
     container.imagesLoaded(function() {
