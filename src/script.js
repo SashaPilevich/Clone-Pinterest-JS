@@ -115,6 +115,24 @@ function createPinterest() {
     btnComplaine.textContent = 'Пожаловаться';
     btnComplaine.style.cssText = btnStyle;
     
+    const popoutComplain = document.querySelector(".popout_complain");
+    const popoutContent = document.querySelector(".complain_content");
+    const cancelBtn = document.querySelector(".cancelBtn");
+    const nextBtn = document.querySelector(".nextBtn");
+
+
+    btnComplaine.addEventListener('click', function modalComplain(){
+        popoutComplain.style.display = "block";
+    })
+
+    cancelBtn.addEventListener('click', function closeComplain(){
+        popoutComplain.style.display = "none";
+    })
+
+    // function modalComplain (){
+    //     popoutComplain.style.display = "block";
+    // }
+
     imgContainer = document.createElement('div');
     imgContainer.classList.add('imgContainer');
 
