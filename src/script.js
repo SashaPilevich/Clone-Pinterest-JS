@@ -20,9 +20,8 @@ if (localStorage.getItem('gallery')) {
     newImages.forEach((item) => {
         createPinterest(item)
     });
-}
-   
-for (let key in images) {
+} else {
+    for (let key in images) {
     let gallery = {};
     gallery.name = key;
     gallery.description = images[key]['description'];
@@ -31,6 +30,7 @@ for (let key in images) {
     newImages.push(gallery);
     createPinterest(gallery); 
     localStorage.setItem('gallery', JSON.stringify(newImages));
+}
 }
 
 function createPinterest(obj) {
