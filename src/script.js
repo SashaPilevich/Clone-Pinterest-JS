@@ -12,78 +12,32 @@ let avatar;
 let about;
 let info;
 
+let newImages = [];
 
-// images.forEach((item) => {}на случай использования массива объектов
-// images.forEach((item) => {
-//     createPinterest();
-//     setGallery(images);
-//     img = document.createElement('img');
-//     img.classList.add('image');
-//     img.setAttribute('data-key', item.name);
-//     img.src = 'images/'+item.name+'.jpg';
-//     img.style.cssText = `
-//     object-fit: cover;
-//     width:100%;
-//     height: auto;
-//     border-radius:20px;
-//     `;
-    
-//     avatar = document.createElement('img');
-//     avatar.setAttribute('data-key',item.avatar );
-//     avatar.classList.add('bkgImage');
-//     avatar.src = 'avatar/'+item.avatar+'.jpg';
-//     avatar.style.cssText = `
-//     margin-right: 10px;
-//     width: 20%;
-//     height:20%;
-//     border-radius: 50%;
-//     `;
+if (localStorage.getItem('gallery')) {
+    newImages = JSON.parse(localStorage.getItem('gallery'));
 
-//     info = document.createElement('h5');
-//     info.textContent = item.description;
-    
-    
-//     about.append(avatar, info);
-//     wrapper.append(about);
-//     imgContainer.append(img);
-//     imgContainer.append(hoverMenu);
-    
-// });
+    newImages.forEach((item) => {
+        createPinterest(item)
+    });
+}
+   
 for (let key in images) {
-    createPinterest();
-    img = document.createElement('img');
-    img.classList.add('image');
-    img.setAttribute('data-key', key);
-    img.src = 'images/'+key+'.jpg';
-    img.style.cssText = `
-    object-fit: cover;
-    width:100%;
-    height: auto;
-    border-radius:20px;
-    `;
-
-    avatar = document.createElement('img');
-    avatar.setAttribute('data-key',images[key]['avatar'] );
-    avatar.classList.add('bkgImage');
-    avatar.src = 'avatar/'+images[key]['avatar']+'.jpg';
-    avatar.style.cssText = `
-    margin-right: 10px;
-    width: 20%;
-    height:20%;
-    border-radius: 50%;
-    `;
-
-    info = document.createElement('h5');
-    info.textContent = images[key]['description'];
-
-    about.append(avatar, info);
-    wrapper.append(about);
-    imgContainer.append(img);
+    let gallery = {};
+    gallery.name = key;
+    gallery.description = images[key]['description'];
+    gallery.avatar = images[key]['avatar'];
+    gallery.visible = true;
+    newImages.push(gallery);
+    createPinterest(gallery); 
+    localStorage.setItem('gallery', JSON.stringify(newImages));
 }
 
-function createPinterest() {
+function createPinterest(obj) {
+    
     wrapper = document.createElement('div');
     wrapper.classList.add('wrapper');
+    wrapper.visible = obj.visible;
 
     hoverMenu = document.createElement('div');
     hoverMenu.classList.add('hoverMenu');
@@ -110,11 +64,32 @@ function createPinterest() {
     btnPin.textContent = 'Скрыть пин со страницы';
     btnPin.style.cssText = btnStyle;
 
+    btnPin.addEventListener('click', () => {
+        for (let i = 0; i < newImages.length; i++) {
+            newImages = newImages.filter((item) => {
+                if(item.name !== obj.name){
+                    imageOut.addEventListener('click', (event) => {
+                        if (event.target.className != 'btnPin') return;
+                        let pane = event.target.closest('.wrapper');
+                        pane.style.opacity = '0.9';
+                        let hoverPin = document.createElement('div');
+                        hoverPin.classList.add('hoverPin');
+                        hoverPin.innerHTML = 'Вы больше не увидите этот пин'
+                        pane.append(hoverPin)
+                    });
+                    return item;
+                }
+            })
+        }
+        localStorage.setItem('gallery', JSON.stringify(newImages));
+    });
+    
+
     btnComplaine = document.createElement('button');
     btnComplaine.classList.add('btnComplaine');
     btnComplaine.textContent = 'Пожаловаться';
     btnComplaine.style.cssText = btnStyle;
-    
+
     const popoutComplain = document.querySelector(".popout_complain");
     const popoutContent = document.querySelector(".complain_content");
     const cancelBtn = document.querySelector(".cancelBtn");
@@ -133,6 +108,7 @@ function createPinterest() {
     //     popoutComplain.style.display = "block";
     // }
 
+    
     imgContainer = document.createElement('div');
     imgContainer.classList.add('imgContainer');
 
@@ -146,28 +122,50 @@ function createPinterest() {
     font-weight: normal;
     font-size:14px;
     `;
-    
+
+    img = document.createElement('img');
+    img.classList.add('image');
+    img.setAttribute('data-key', obj.name);
+    img.src = 'images/'+obj.name+'.jpg';
+    img.style.cssText = `
+    object-fit: cover;
+    width:100%;
+    height: auto;
+    border-radius:20px;
+    `;
+
+    avatar = document.createElement('img');
+    avatar.setAttribute('data-key',obj.avatar );
+    avatar.classList.add('bkgImage');
+    avatar.src = 'avatar/'+obj.avatar+'.jpg';
+    avatar.style.cssText = `
+    margin-right: 10px;
+    width: 20%;
+    height:20%;
+    border-radius: 50%;
+    `;
+    info = document.createElement('h5');
+    info.textContent = obj.description;
+
     sizer.append(wrapper);
-    wrapper.append(imgContainer);
-    imgContainer.append(hoverMenu);
-    hoverMenu.append(btnAdd, btnPin, btnComplaine);
+    wrapper.append(imgContainer,about);
+    about.append(avatar,info);
+    imgContainer.append(img, hoverMenu);
+    hoverMenu.append(btnAdd, btnPin, btnComplaine)
+
 }
-
-//скрыть пин
-imageOut.addEventListener('click', (event) => {
-    if (event.target.className != 'btnPin') return;
-
-    let pane = event.target.closest('.wrapper');
-    pane.style.opacity = '0.9';
-    pane.style.position = 'absolute';
-
-    let hoverPin = document.createElement('div');
-    hoverPin.classList.add('hoverPin')
-    hoverPin.innerHTML = 'Вы больше не увидите этот пин';
-    hoverPin.style.cssText = hoverPin;
     
-    pane.append(hoverPin);
+$(document).ready(function() {
+    let container = $(".imageOut");
+    container.imagesLoaded(function() {
+        container.masonry({
+            itemSelector: ".wrapper",
+            columnWidth: ".sizer",
+        });
+    });
 });
+
+    
 
 //подключение masonry
 $(document).ready(function() {
