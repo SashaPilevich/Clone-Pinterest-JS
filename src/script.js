@@ -33,6 +33,22 @@ if (localStorage.getItem('gallery')) {
 }
 }
 
+//Модальное окно "Добавить на доску"
+
+function openModal(event) {
+    const buttonModalAdd = document.querySelector('.modal__add');
+    const modalElement = document.querySelector('.modal__1');
+
+    console.log(modalElement);
+
+    modalElement.classList.add('show');
+    modalElement.classList.remove('hide');
+}
+
+
+
+
+
 function createPinterest(obj) {
     
     wrapper = document.createElement('div');
@@ -58,6 +74,8 @@ function createPinterest(obj) {
     btnAdd.classList.add('btnAdd');
     btnAdd.textContent = 'Добавить на доску';
     btnAdd.style.cssText = btnStyle;
+
+    btnAdd.addEventListener('click', (event) => openModal(event));
     
     btnPin = document.createElement('button');
     btnPin.classList.add('btnPin');
@@ -152,7 +170,6 @@ function createPinterest(obj) {
     about.append(avatar,info);
     imgContainer.append(img, hoverMenu);
     hoverMenu.append(btnAdd, btnPin, btnComplaine)
-
 }
     
 $(document).ready(function() {
@@ -206,11 +223,3 @@ tabs.addEventListener('click', (event) => {
         }
     }
 });
-
-
-
-
-
-
-
-
