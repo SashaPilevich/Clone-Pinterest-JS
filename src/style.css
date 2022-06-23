@@ -313,3 +313,42 @@ input:checked {
   border: 7px solid black;
 }
 
+
+/* 2 modal */
+
+.next_modal{
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.next_modal h3{
+    margin-top: 20%;
+}
+.next_modal__content{
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 500px;
+    padding: 14px;
+    padding-bottom: 5px;
+    margin: 0 auto;
+    height: 300px;
+    padding-bottom: 10px;
+}
+.next_modal__close{
+    width: 88px;
+    height: 40px;
+    border-radius: 40px;
+    color: white;
+    cursor:pointer;
+    border: none;
+}
