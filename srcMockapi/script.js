@@ -286,7 +286,7 @@ function createPinterest(obj) {
               popoutComplain.style.display = "none";
               nextModal.style.display = "none";
           }
-        })
+        });
 
     //    второе модальное
 
