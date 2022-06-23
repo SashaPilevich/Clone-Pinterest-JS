@@ -196,7 +196,47 @@
         height: 100%;
     }
     
-    
+    .popout_pin {
+        width: 100%;
+        height: 100%;
+        display: none;
+        z-index: 1;
+        position: fixed;
+        left: 0;
+        top: 0;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    .pin_content{
+        background:linear-gradient(360deg, rgba(37, 36, 35, 0.9) 0%, rgba(83, 26, 26, 0.9) 100% );
+        /* padding: 33px 0px 33px 33px; */
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        max-width: 250px;
+        height: 350px;
+        margin: 0 auto;
+        color: brown;
+        font-size: 24px;
+        text-align: center;
+    }
+    .pin_content h5 {
+        margin-bottom: 100px;
+    }
+    .cancel{
+        width: 88px;
+        height: 40px;
+        border-radius: 40px;
+        color: #111111;
+        font-family: Open sans, 'sans-serif';
+        font-size: 14px;
+        background-color:#EFEFEF;
+        cursor:pointer;
+        border: none;
+    }
+
     /* модальное окно пожаловаться */
     
     
@@ -222,8 +262,6 @@
         align-items: center;
         max-width: 600px;
         margin: 0 auto;
-    
-      
     }
     .restrict{
         overflow: auto;
@@ -312,5 +350,91 @@
     input:checked {
       border: 7px solid black;
     }
+
+
+    /* модальное окно добавить на доску */
+    .modal {
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:1050;
+        display:none;
+        width:100%;
+        height:100%;
+        overflow: hidden;
+        background-color:rgba(0,0,0,.5);
+      }
+      
+    .modal__dialog {
+        max-width:600px;
+        margin:40px auto;
+    }
+      
+    .modal__content {
+        display: flex;
+        justify-content: flex-start;
+        position:relative;
+        width:100%;
+        background-color:#fff;
+        border:1px solid rgba(0,0,0,.2);
+        border-radius:10px;
+        max-height: 600px;
+        overflow-y:auto;
+        padding:40px;
+    }
+    .imageWrapper {
+        margin-right: 30px;
+        width: 40%;
+    }
+    .modal__choose{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+    }
+
+    .chooseDesk {
+        margin-bottom: 30px;
+    }
+    .tab-btn-one,
+    .tab-btn-two,
+    .tab-btn-three {
+    width:100px;
+    height:30px;
+    padding: 2px;
+    border-radius: 20px;
+    color: white;
+    background-color:brown;
+    cursor:pointer;
+    border: none;
+    margin-bottom: 30px;
+    }
+    .modal__close {
+        position:absolute;
+        top:8px;
+        right:14px;
+        font-size:30px;
+        color:#000;
+        opacity:.5;
+        font-weight:700;
+        border:none;
+        background-color:transparent;
+        cursor:pointer;
+    }
+      
+    .show {
+        display:block;
+    }
+      
+    .hide {
+        display:none;
+    }
+
+    
+    
+    
+
+    
+    
     
     
