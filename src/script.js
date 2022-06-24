@@ -119,15 +119,6 @@ function createPinterest(obj) {
         nextModal.style.display = "none";
 
     })
-<<<<<<< HEAD
-=======
-
-
-
-
-
->>>>>>> 7b8fbf6eecfb66b4c63bdea688b9be6d29d3496e
-
     
     imgContainer = document.createElement('div');
     imgContainer.classList.add('imgContainer');
