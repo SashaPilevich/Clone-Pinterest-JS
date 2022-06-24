@@ -37,15 +37,24 @@ if (localStorage.getItem('gallery')) {
 
 function openModal(event) {
     const buttonModalAdd = document.querySelector('.modal__add');
-    const modalElement = document.querySelector('.modal__1');
+    let modalElement = document.querySelector('.modal__1');
 
     console.log(modalElement);
 
     modalElement.classList.add('show');
     modalElement.classList.remove('hide');
+
+    //Модальное окно "Закрыть модальное окно"
+
+    const buttonModalClose= document.querySelector('.modal__close');
+    buttonModalClose.addEventListener('click', (event) => {
+        let item = event.target.parentElement;
+        modalElement.classList.remove('show');
+        modalElement.classList.add('hide');
+    });
+
+    
 }
-
-
 
 
 
