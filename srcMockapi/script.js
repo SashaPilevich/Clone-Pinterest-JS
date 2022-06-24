@@ -281,9 +281,12 @@ function createPinterest(obj) {
         popoutComplain.style.display = "none";
     })
 
-    // function modalComplain (){
-    //     popoutComplain.style.display = "block";
-    // }
+    document.addEventListener('keydown', (e) => {
+       if(e.keyCode === 27){
+              popoutComplain.style.display = "none";
+              nextModal.style.display = "none";
+          }
+        });
 
     //    второе модальное
 
