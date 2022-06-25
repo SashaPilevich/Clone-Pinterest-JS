@@ -391,6 +391,7 @@ const helper = document.querySelector('.helper')
 if (imageOut.innerHTML && valueSearch) { //проверка на присутствие фото на главной странице и на ввод в поиске
     helper.innerHTML = '';//чтобы очищлся контейнер от предыдущего поиска
     newImages = JSON.parse(localStorage.getItem('gallery'));//берем данные из local storage
+    helper.innerHTML = ''; // чтобы картиночки стирались при поиске новых
             newImages.filter((item) => {
                 if(valueSearch === (item.hashtag).toLowerCase().replace('#','')) {//сравниваем то что введено в поиск и хештегом каждого объекта
                 //и если есть совпадения то рисуем это на UI
