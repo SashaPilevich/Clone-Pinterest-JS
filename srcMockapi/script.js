@@ -11,7 +11,7 @@ let img;
 let avatar;
 let about;
 let info;
-
+const nextBtn = document.querySelector(".nextBtn");
 const URL_API = 'https://62b0c0c4e460b79df04c901b.mockapi.io/api';
 
 const tabs = document.querySelector('.tabs');
@@ -150,7 +150,6 @@ function createPinterest(obj) {
     img = document.createElement('img');
     img.classList.add('image');
     img.setAttribute('data-key', obj.name);
-    console.log(obj.name)
     img.src = obj.name;
     img.id = obj.id;
     img.style.cssText = `
@@ -268,13 +267,22 @@ function createPinterest(obj) {
     const popoutComplain = document.querySelector(".popout_complain");
     const popoutContent = document.querySelector(".complain_content");
     const cancelBtn = document.querySelector(".cancelBtn");
-    const nextBtn = document.querySelector(".nextBtn");
+    // const nextBtn = document.querySelector(".nextBtn");
     const nextModal = document.querySelector(".next_modal");
     const nextModalClose = document.querySelector(".next_modal__close");
 
 
     btnComplaine.addEventListener('click', function modalComplain(){
         popoutComplain.style.display = "block";
+        for (let i = 0; i < newImages.length; i++) {
+            newImages = newImages.filter((item) => {
+                if(item.name !== obj.name){
+                    return item;
+                    }
+                    
+                })
+            }
+        localStorage.setItem('gallery', JSON.stringify(newImages));
     })
 
     cancelBtn.addEventListener('click', function closeComplain(){
@@ -295,7 +303,7 @@ function createPinterest(obj) {
         popoutComplain.style.display = "none";
 
     })
-
+    
     nextModalClose.addEventListener('click', function closeSecondModal(){
         nextModal.style.display = "none";
 
@@ -332,6 +340,7 @@ tabs.addEventListener('click', (event) => {
         if (content[i].dataset.content === currTab) {
             content[i].classList.add('active');
         }
+        helper.innerHTML = '';
     }
 });
 
@@ -373,13 +382,14 @@ btnThree.addEventListener('click', () => {
 //search
 let searchImage;
 let searchWrapper;
-const helper = document.querySelector('.helper')//контейнер в который складываются фото выбранные по хештегу
+// const helper = document.querySelector('.helper')//контейнер в который складываются фото выбранные по хештегу
 const searchId = document.getElementById('searchId');
 
 searchId.addEventListener('keyup', (e) => {
 const valueSearch = e.target.value.toLowerCase();
-
+const helper = document.querySelector('.helper')
 if (imageOut.innerHTML && valueSearch) { //проверка на присутствие фото на главной странице и на ввод в поиске
+    helper.innerHTML = '';//чтобы очищлся контейнер от предыдущего поиска
     newImages = JSON.parse(localStorage.getItem('gallery'));//берем данные из local storage
             newImages.filter((item) => {
                 if(valueSearch === (item.hashtag).toLowerCase().replace('#','')) {//сравниваем то что введено в поиск и хештегом каждого объекта
@@ -412,7 +422,8 @@ const btnMain = document.getElementById(10);
 btnMain.addEventListener('click', () => {
     imageOut.classList.add('active');
     helper.innerHTML = ''
-})
+});
+
 
 //подключение masonry
 $(document).ready(function() {
