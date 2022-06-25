@@ -33,6 +33,31 @@ if (localStorage.getItem('gallery')) {
     }
 }
 
+//Модальное окно "Добавить на доску"
+
+function openModal(event) {
+    const buttonModalAdd = document.querySelector('.modal__add');
+    let modalElement = document.querySelector('.modal__1');
+
+    console.log(modalElement);
+
+    modalElement.classList.add('show');
+    modalElement.classList.remove('hide');
+
+    //Модальное окно "Закрыть модальное окно"
+
+    const buttonModalClose= document.querySelector('.modal__close');
+    buttonModalClose.addEventListener('click', (event) => {
+        let item = event.target.parentElement;
+        modalElement.classList.remove('show');
+        modalElement.classList.add('hide');
+    });
+
+    
+}
+
+
+
 function createPinterest(obj) {
 
     wrapper = document.createElement('div');
@@ -59,6 +84,11 @@ function createPinterest(obj) {
     btnAdd.textContent = 'Добавить на доску';
     btnAdd.style.cssText = btnStyle;
 
+<<<<<<< search
+=======
+    btnAdd.addEventListener('click', (event) => openModal(event));
+    
+>>>>>>> develop
     btnPin = document.createElement('button');
     btnPin.classList.add('btnPin');
     btnPin.textContent = 'Скрыть пин со страницы';
@@ -94,6 +124,8 @@ function createPinterest(obj) {
     const popoutContent = document.querySelector(".complain_content");
     const cancelBtn = document.querySelector(".cancelBtn");
     const nextBtn = document.querySelector(".nextBtn");
+    const nextModal = document.querySelector(".next_modal");
+    const nextModalClose = document.querySelector(".next_modal__close");
 
 
     btnComplaine.addEventListener('click', function modalComplain() {
@@ -104,11 +136,24 @@ function createPinterest(obj) {
         popoutComplain.style.display = "none";
     })
 
-    // function modalComplain (){
-    //     popoutComplain.style.display = "block";
-    // }
+    
+    //    второе модальное
 
+<<<<<<< search
 
+=======
+    nextBtn.addEventListener('click', function openSecondModal(){
+        nextModal.style.display = "block";
+        popoutComplain.style.display = "none";
+
+    })
+
+    nextModalClose.addEventListener('click', function closeSecondModal(){
+        nextModal.style.display = "none";
+
+    })
+    
+>>>>>>> develop
     imgContainer = document.createElement('div');
     imgContainer.classList.add('imgContainer');
 
@@ -152,7 +197,6 @@ function createPinterest(obj) {
     about.append(avatar, info);
     imgContainer.append(img, hoverMenu);
     hoverMenu.append(btnAdd, btnPin, btnComplaine)
-
 }
 
 $(document).ready(function () {
@@ -206,6 +250,7 @@ tabs.addEventListener('click', (event) => {
         }
     }
 });
+<<<<<<< search
 
 
 /* поиск */
@@ -241,3 +286,5 @@ const displayCharacters = (wrap) => {
 };
 
 
+=======
+>>>>>>> develop
