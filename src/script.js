@@ -22,15 +22,15 @@ if (localStorage.getItem('gallery')) {
     });
 } else {
     for (let key in images) {
-    let gallery = {};
-    gallery.name = key;
-    gallery.description = images[key]['description'];
-    gallery.avatar = images[key]['avatar'];
-    gallery.visible = true;
-    newImages.push(gallery);
-    createPinterest(gallery); 
-    localStorage.setItem('gallery', JSON.stringify(newImages));
-}
+        let gallery = {};
+        gallery.name = key;
+        gallery.description = images[key]['description'];
+        gallery.avatar = images[key]['avatar'];
+        gallery.visible = true;
+        newImages.push(gallery);
+        createPinterest(gallery);
+        localStorage.setItem('gallery', JSON.stringify(newImages));
+    }
 }
 
 //Модальное окно "Добавить на доску"
@@ -59,7 +59,7 @@ function openModal(event) {
 
 
 function createPinterest(obj) {
-    
+
     wrapper = document.createElement('div');
     wrapper.classList.add('wrapper');
     wrapper.visible = obj.visible;
@@ -84,8 +84,11 @@ function createPinterest(obj) {
     btnAdd.textContent = 'Добавить на доску';
     btnAdd.style.cssText = btnStyle;
 
+<<<<<<< search
+=======
     btnAdd.addEventListener('click', (event) => openModal(event));
     
+>>>>>>> develop
     btnPin = document.createElement('button');
     btnPin.classList.add('btnPin');
     btnPin.textContent = 'Скрыть пин со страницы';
@@ -94,7 +97,7 @@ function createPinterest(obj) {
     btnPin.addEventListener('click', () => {
         for (let i = 0; i < newImages.length; i++) {
             newImages = newImages.filter((item) => {
-                if(item.name !== obj.name){
+                if (item.name !== obj.name) {
                     imageOut.addEventListener('click', (event) => {
                         if (event.target.className != 'btnPin') return;
                         let pane = event.target.closest('.wrapper');
@@ -110,7 +113,7 @@ function createPinterest(obj) {
         }
         localStorage.setItem('gallery', JSON.stringify(newImages));
     });
-    
+
 
     btnComplaine = document.createElement('button');
     btnComplaine.classList.add('btnComplaine');
@@ -125,17 +128,20 @@ function createPinterest(obj) {
     const nextModalClose = document.querySelector(".next_modal__close");
 
 
-    btnComplaine.addEventListener('click', function modalComplain(){
+    btnComplaine.addEventListener('click', function modalComplain() {
         popoutComplain.style.display = "block";
     })
 
-    cancelBtn.addEventListener('click', function closeComplain(){
+    cancelBtn.addEventListener('click', function closeComplain() {
         popoutComplain.style.display = "none";
     })
 
     
     //    второе модальное
 
+<<<<<<< search
+
+=======
     nextBtn.addEventListener('click', function openSecondModal(){
         nextModal.style.display = "block";
         popoutComplain.style.display = "none";
@@ -147,6 +153,7 @@ function createPinterest(obj) {
 
     })
     
+>>>>>>> develop
     imgContainer = document.createElement('div');
     imgContainer.classList.add('imgContainer');
 
@@ -164,7 +171,7 @@ function createPinterest(obj) {
     img = document.createElement('img');
     img.classList.add('image');
     img.setAttribute('data-key', obj.name);
-    img.src = 'images/'+obj.name+'.jpg';
+    img.src = 'images/' + obj.name + '.jpg';
     img.style.cssText = `
     object-fit: cover;
     width:100%;
@@ -173,9 +180,9 @@ function createPinterest(obj) {
     `;
 
     avatar = document.createElement('img');
-    avatar.setAttribute('data-key',obj.avatar );
+    avatar.setAttribute('data-key', obj.avatar);
     avatar.classList.add('bkgImage');
-    avatar.src = 'avatar/'+obj.avatar+'.jpg';
+    avatar.src = 'avatar/' + obj.avatar + '.jpg';
     avatar.style.cssText = `
     margin-right: 10px;
     width: 20%;
@@ -186,15 +193,15 @@ function createPinterest(obj) {
     info.textContent = obj.description;
 
     sizer.append(wrapper);
-    wrapper.append(imgContainer,about);
-    about.append(avatar,info);
+    wrapper.append(imgContainer, about);
+    about.append(avatar, info);
     imgContainer.append(img, hoverMenu);
     hoverMenu.append(btnAdd, btnPin, btnComplaine)
 }
-    
-$(document).ready(function() {
+
+$(document).ready(function () {
     let container = $(".imageOut");
-    container.imagesLoaded(function() {
+    container.imagesLoaded(function () {
         container.masonry({
             itemSelector: ".wrapper",
             columnWidth: ".sizer",
@@ -202,12 +209,12 @@ $(document).ready(function() {
     });
 });
 
-    
+
 
 //подключение masonry
-$(document).ready(function() {
+$(document).ready(function () {
     let container = $(".imageOut");
-    container.imagesLoaded(function() {
+    container.imagesLoaded(function () {
         container.masonry({
             itemSelector: ".wrapper",
             columnWidth: ".sizer",
@@ -243,3 +250,41 @@ tabs.addEventListener('click', (event) => {
         }
     }
 });
+<<<<<<< search
+
+
+/* поиск */
+//console.log(newImages);
+//console.log(sizer);
+
+const searchId = document.getElementById('searchId');
+//console.log(searchId);
+
+searchId.addEventListener('keyup', (e) => {
+
+    const searchString = e.target.value.toLowerCase();
+    console.log(searchString);
+
+    const filteredImgBlocks = newImages.filter((imgBlock) => {
+        return (imgBlock.name.toLowerCase().includes(searchString));
+        //console.log(imgBlock.name.toLowerCase().includes(searchString));
+    });
+
+    displayCharacters(filteredImgBlocks);
+    //console.log(filteredImgBlocks);
+});
+
+
+const displayCharacters = (wrap) => {
+    const htmlString = wrap
+        .map((imgBlock) => {
+            return imgBlock.name;
+        })
+        .join('');
+    //console.log(wrap);
+    sizer.innerHTML = htmlString;
+};
+
+
+=======
+>>>>>>> develop
