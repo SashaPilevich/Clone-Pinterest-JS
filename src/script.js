@@ -121,6 +121,8 @@ function createPinterest(obj) {
     const popoutContent = document.querySelector(".complain_content");
     const cancelBtn = document.querySelector(".cancelBtn");
     const nextBtn = document.querySelector(".nextBtn");
+    const nextModal = document.querySelector(".next_modal");
+    const nextModalClose = document.querySelector(".next_modal__close");
 
 
     btnComplaine.addEventListener('click', function modalComplain(){
@@ -131,10 +133,19 @@ function createPinterest(obj) {
         popoutComplain.style.display = "none";
     })
 
-    // function modalComplain (){
-    //     popoutComplain.style.display = "block";
-    // }
+    
+    //    второе модальное
 
+    nextBtn.addEventListener('click', function openSecondModal(){
+        nextModal.style.display = "block";
+        popoutComplain.style.display = "none";
+
+    })
+
+    nextModalClose.addEventListener('click', function closeSecondModal(){
+        nextModal.style.display = "none";
+
+    })
     
     imgContainer = document.createElement('div');
     imgContainer.classList.add('imgContainer');
