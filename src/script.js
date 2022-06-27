@@ -11,7 +11,7 @@ let img;
 let avatar;
 let about;
 let info;
-const nextBtn = document.querySelector(".nextBtn");
+
 const URL_API = 'https://62b0c0c4e460b79df04c901b.mockapi.io/api';
 
 const tabs = document.querySelector('.tabs');
@@ -274,6 +274,14 @@ function createPinterest(obj) {
 
     btnComplaine.addEventListener('click', function modalComplain(){
         popoutComplain.style.display = "block";
+        nextBtn.addEventListener('click', () => {
+            newImages = newImages.filter((item) => {
+                if(item.name !== obj.name){//тут по условию мы сравниваем наш объект из localStorage(item) с объектом который на UI(obj),и если они не равны,то возвращаем в localStorage все item которые не такие как картинка по которой произошел click
+                    return item;
+                }
+            })
+        localStorage.setItem('gallery', JSON.stringify(newImages));
+        })
     })
 
     cancelBtn.addEventListener('click', function closeComplain(){
@@ -308,6 +316,7 @@ function createPinterest(obj) {
    
 }
 
+    
 /*список выбора досок*/
 
 const content = document.querySelectorAll('.content');
