@@ -21,7 +21,7 @@ btnTwo.addEventListener('click', () => {
     let imgDeskTwo = {};
     imgDeskTwo.src = currentImg.src;
     arrDeskTwo.push(imgDeskTwo);
-    createDeskThree(imgDeskTwo)
+    createDeskTwo(imgDeskTwo)
     localStorage.setItem('deskTwo', JSON.stringify(arrDeskTwo));
     closeModal()
 })
