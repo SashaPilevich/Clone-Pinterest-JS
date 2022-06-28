@@ -13,8 +13,6 @@ let about;
 let info;
 
 const URL_API = 'https://62b0c0c4e460b79df04c901b.mockapi.io/api';
-
-
 //Элементы из модального окна "добавить на доску"
 const modalElement = document.querySelector('.modal');
 const imageWrapper = document.querySelector('.imageWrapper');
@@ -155,6 +153,7 @@ if (localStorage.getItem('gallery')) {
 }
 
 //Функция получения всех данных с Mockapi
+
 async function getPinterest() {
     const response = await fetch(`${URL_API}/pinterest`);
     const pinterest = await response.json();
@@ -176,12 +175,14 @@ function createElement() {
     })
 }
 
+
+
 //Функция создания всех элементов на главной странице
 function createPinterest(obj) {
     wrapper = document.createElement('div');
     wrapper.classList.add('wrapper');
     wrapper.setAttribute('data-key', obj.name);
-    wrapper.id = obj.id;
+    wrapper.name = obj.name;
 
     imgContainer = document.createElement('div');
     imgContainer.classList.add('imgContainer');
@@ -222,6 +223,16 @@ function createPinterest(obj) {
 
     info = document.createElement('h5');
     info.textContent = obj.description;
+
+    $(document).ready(function() {
+        let container = $(".imageOut");
+        container.imagesLoaded(function() {
+            container.masonry({
+                itemSelector: ".wrapper",
+                columnWidth: ".sizer",
+            });
+        });
+    });
 
     hoverMenu = document.createElement('div');
     hoverMenu.classList.add('hoverMenu');
@@ -345,6 +356,8 @@ function createPinterest(obj) {
     imgContainer.append(hoverMenu,img);
     about.append(avatar, info);
     hoverMenu.append(btnAdd, btnPin, btnComplaine); 
+
+    
 }
 
     
@@ -391,7 +404,7 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
                 //и если есть совпадения то рисуем это на UI
                 helper.style.cssText = `
                 display: grid;
-                grid-template-columns:repeat(4, 1fr);
+                grid-template-columns:repeat(5, 1fr);
                 column-gap: 30px;
                 `
                 imageOut.classList.remove('active');//скрываем главную страницу
@@ -421,12 +434,12 @@ btnMain.addEventListener('click', () => {
 
 
 //подключение masonry
-$(document).ready(function() {
-    let container = $(".imageOut");
-    container.imagesLoaded(function() {
-        container.masonry({
-            itemSelector: ".wrapper",
-            columnWidth: ".sizer",
-        });
-    });
-});
+// $(document).ready(function() {
+//     let container = $(".imageOut");
+//     container.imagesLoaded(function() {
+//         container.masonry({
+//             itemSelector: ".wrapper",
+//             columnWidth: ".sizer",
+//         });
+//     });
+// });
