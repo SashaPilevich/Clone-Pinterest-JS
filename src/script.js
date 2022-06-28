@@ -14,7 +14,7 @@ let info;
 
 const URL_API = 'https://62b0c0c4e460b79df04c901b.mockapi.io/api';
 
-const tabs = document.querySelector('.tabs');
+
 //Элементы из модального окна "добавить на доску"
 const modalElement = document.querySelector('.modal');
 const imageWrapper = document.querySelector('.imageWrapper');
@@ -23,6 +23,29 @@ const imageWrapper = document.querySelector('.imageWrapper');
 const btnOne = document.querySelector('.tab-btn-one');
 const btnTwo = document.querySelector('.tab-btn-two');
 const btnThree = document.querySelector('.tab-btn-three');
+
+//Функция модального окна "добавить на доску"
+function modal() {
+    modalElement.addEventListener('click', (e) => {
+    if (
+    e.target === modalElement ||
+    e.target.getAttribute('data-close') == ''
+    ) {
+    closeModal();
+    }
+    });
+    }
+    
+    function openModal() {
+    modalElement.classList.add('show');
+    modalElement.classList.remove('hide');
+    document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+    modalElement.classList.add('hide');
+    modalElement.classList.remove('show');
+    document.body.style.overflow = '';
+    }
 
 //Контейнеры которые появляются при переключении досок
 const deskOne = document.getElementById(1);
@@ -92,6 +115,33 @@ function createDeskThree(obj) {
     `;
     deskThree.append(imageOnDesk)
 }
+//Добавление фото на доску 1
+btnOne.addEventListener('click', () => {
+    let imgDeskOne = {};
+    imgDeskOne.src = currentImg.src;
+    arrDeskOne.push(imgDeskOne);
+    createDeskOne(imgDeskOne)
+    localStorage.setItem('deskOne', JSON.stringify(arrDeskOne));
+    closeModal()
+})
+//Добавление фото на доску 2
+btnTwo.addEventListener('click', () => {
+    let imgDeskTwo = {};
+    imgDeskTwo.src = currentImg.src;
+    arrDeskTwo.push(imgDeskTwo);
+    createDeskTwo(imgDeskTwo)
+    localStorage.setItem('deskTwo', JSON.stringify(arrDeskTwo));
+    closeModal()
+})
+//Добавление фото на доску 3
+btnThree.addEventListener('click', () => {
+    let imgDeskThree = {};
+    imgDeskThree.src = currentImg.src;
+    arrDeskThree.push(imgDeskThree);
+    createDeskThree(imgDeskThree)
+    localStorage.setItem('deskThree', JSON.stringify(arrDeskThree));
+    closeModal()
+})
 
 //Массив и сохранение в local storage главной страницы
 let newImages = [];
@@ -192,7 +242,6 @@ function createPinterest(obj) {
 
     btnAdd = document.createElement('button');
     btnAdd.classList.add('btnAdd');
-    btnAdd.id = obj.id;
     btnAdd.name = obj.name;
     btnAdd.textContent = 'Добавить на доску';
     btnAdd.style.cssText = btnStyle;
@@ -200,7 +249,7 @@ function createPinterest(obj) {
     btnAdd.addEventListener('click', (event) => {
         imageWrapper.innerHTML = '';//для того чтобы при повторном открытии модального окна не тянулась картинка с прошлого открытия
         
-        if (event.target.closest('.wrapper') || event.target.getAttribute('data-key')){
+        if (event.target.closest('.wrapper')){
                 currentImg = document.createElement('img');
                 currentImg.src = event.target.name;
                 currentImg.style.cssText = `
@@ -210,27 +259,10 @@ function createPinterest(obj) {
                 border-radius:20px;`;
                 imageWrapper.append(currentImg);  
         }
-        
                 modal();
                 openModal();    
         })
-    //Функция модального окна "добавить на доску"
-        function modal() {
-        modalElement.addEventListener('click', (e) => {
-            if (
-            e.target === modalElement ||
-            e.target.getAttribute('data-close') == ''
-            ) {
-            closeModal();
-            }
-        });
-        }
-        
-        function openModal() {
-        modalElement.classList.add('show');
-        modalElement.classList.remove('hide');
-        document.body.style.overflow = 'hidden';
-        }
+    
 
     //Подключение "скрыть пин"
     btnPin = document.createElement('button');
@@ -312,13 +344,12 @@ function createPinterest(obj) {
     wrapper.append(imgContainer, about);
     imgContainer.append(hoverMenu,img);
     about.append(avatar, info);
-    hoverMenu.append(btnAdd, btnPin, btnComplaine);
-   
+    hoverMenu.append(btnAdd, btnPin, btnComplaine); 
 }
 
     
 /*список выбора досок*/
-
+const tabs = document.querySelector('.tabs');
 const content = document.querySelectorAll('.content');
 const changeClass = (element) => {
 
@@ -343,41 +374,6 @@ tabs.addEventListener('click', (event) => {
         helper.innerHTML = '';
     }
 });
-
-function closeModal() {
-    modalElement.classList.add('hide');
-    modalElement.classList.remove('show');
-    document.body.style.overflow = '';
-
-}
-
-//Добавление фото на доску 1
-btnOne.addEventListener('click', () => {
-    let imgDeskOne = {};
-    imgDeskOne.src = currentImg.src;
-    arrDeskOne.push(imgDeskOne);
-    createDeskOne(imgDeskOne)
-    localStorage.setItem('deskOne', JSON.stringify(arrDeskOne));
-    closeModal()
-})
-//Добавление фото на доску 2
-btnTwo.addEventListener('click', () => {
-    let imgDeskTwo = {};
-    imgDeskTwo.src = currentImg.src;
-    arrDeskTwo.push(imgDeskTwo);
-    createDeskTwo(imgDeskTwo)
-    localStorage.setItem('deskTwo', JSON.stringify(arrDeskTwo));
-    closeModal()
-})
-//Добавление фото на доску 3
-btnThree.addEventListener('click', () => {
-    let imgDeskThree = {};
-    imgDeskThree.src = currentImg.src;
-    arrDeskThree.push(imgDeskThree);
-    createDeskThree(imgDeskThree)
-    localStorage.setItem('deskThree', JSON.stringify(arrDeskThree));
-    closeModal()
-})
 
 //search
 let searchImage;
