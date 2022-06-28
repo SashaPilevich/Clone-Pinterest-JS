@@ -49,6 +49,14 @@ export function createPinterest(obj) {
 
     let hoverMenu = document.createElement('div');
     hoverMenu.classList.add('hoverMenu');
+    //чтобы можно было скачать картинку
+    let link = document.createElement('a');
+    link.classList.add('link');
+    link.style.cssText = btnStyle;
+    link.download = obj.name;
+    link.href = obj.name;
+    link.innerHTML = 'Сохранить пин'
+    hoverMenu.append(link)
 
     let btnAdd = document.createElement('button');
     btnAdd.classList.add('btnAdd');
@@ -74,7 +82,7 @@ export function createPinterest(obj) {
     //Подключение "скрыть пин"
     let btnPin = document.createElement('button');
     btnPin.classList.add('btnPin');
-    btnPin.textContent = 'Скрыть пин со страницы';
+    btnPin.textContent = 'Скрыть пин';
     btnPin.style.cssText = btnStyle;
 
     btnPin.addEventListener('click', () => {

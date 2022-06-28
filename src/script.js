@@ -238,8 +238,8 @@ function createPinterest(obj) {
     hoverMenu.classList.add('hoverMenu');
 
     const btnStyle = `
-    width:50%;
-    height:20%;
+    width:60%;
+    height:15%;
     border-radius: 20px;
     color: white;
     font-family: Open sans, 'sans-serif';
@@ -248,8 +248,18 @@ function createPinterest(obj) {
     cursor:pointer;
     border: none;
     text-align:center;
-    padding: 5px;
+    padding: 15px;
     `;
+
+    //чтобы можно было скачать картинку
+    let link = document.createElement('a');
+    link.classList.add('link');
+    link.style.cssText = btnStyle;
+    link.download = obj.name;
+    link.href = obj.name;
+    link.innerHTML = 'Сохранить пин'
+    hoverMenu.append(link)
+
 
     btnAdd = document.createElement('button');
     btnAdd.classList.add('btnAdd');
