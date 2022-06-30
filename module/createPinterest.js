@@ -20,14 +20,13 @@ export function createPinterest(obj) {
     about.classList.add('about')
     about.style.cssText = aboutStyle;
     
-
     let img = document.createElement('img');
     img.classList.add('image');
     img.setAttribute('data-key', obj.name);
     img.src = obj.name;
     img.id = obj.id;
     img.style.cssText = imageStyle;
-    
+
     let avatar = document.createElement('img');
     avatar.setAttribute('data-key',obj.avatar );
     avatar.classList.add('bkgImage');
@@ -36,6 +35,7 @@ export function createPinterest(obj) {
 
     let info = document.createElement('h5');
     info.textContent = obj.description;
+
     //подключение masonry
     $(document).ready(function() {
     let container = $(".imageOut");
@@ -49,14 +49,27 @@ export function createPinterest(obj) {
 
     let hoverMenu = document.createElement('div');
     hoverMenu.classList.add('hoverMenu');
-    //чтобы можно было скачать картинку
-    let link = document.createElement('a');
-    link.classList.add('link');
-    link.style.cssText = btnStyle;
-    link.download = obj.name;
-    link.href = obj.name;
-    link.innerHTML = 'Сохранить пин'
-    hoverMenu.append(link)
+
+    let linkSave = document.createElement('button');
+    linkSave.classList.add('link');
+    linkSave.style.cssText = btnStyle;
+    linkSave.innerHTML = 'Сохранить пин';
+    hoverMenu.append(linkSave)
+
+    //скачивание картинки//изучить про объект blob
+    function saveImg(blob) {
+        let link = document.createElement('a');
+        link.setAttribute('href', URL.createObjectURL(blob));
+        link.setAttribute('download', `${Date.now()}`);
+        link.click();
+      }
+      
+    linkSave.addEventListener('click', () => {
+        fetch(img.src)
+          .then((response_object) => response_object.blob())
+          .then((blob_object) => saveImg(blob_object));
+      });
+    
 
     let btnAdd = document.createElement('button');
     btnAdd.classList.add('btnAdd');
@@ -92,7 +105,7 @@ export function createPinterest(obj) {
                     imageOut.addEventListener('click', (event) => {
                         if (event.target.className != 'btnPin') return;
                         let pane = event.target.closest('.wrapper');
-                        pane.style.opacity = '0.9';
+                        pane.style.opacity = '1';
                         let hoverPin = document.createElement('div');
                         hoverPin.classList.add('hoverPin');
                         hoverPin.innerHTML = 'Вы больше не увидите этот пин'
@@ -125,7 +138,7 @@ export function createPinterest(obj) {
 
     sizer.append(wrapper);
     wrapper.append(imgContainer, about);
-    imgContainer.append(hoverMenu,img);
+    imgContainer.append(hoverMenu, img);
     about.append(avatar, info);
     hoverMenu.append(btnAdd, btnPin, btnComplaine);
 }

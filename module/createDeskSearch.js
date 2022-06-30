@@ -1,38 +1,35 @@
 import { imageStyle } from "./styleElement.js";
-//Контейнеры которые появляются при переключении досок
-export const deskOne = document.getElementById(1);
-export const deskTwo = document.getElementById(2);
-export const deskThree = document.getElementById(3);
+import { deskOne, deskTwo, deskThree } from "./createDesk.js";
 
 //Массив и local storage для доски 1
-export let arrDeskOne = [];
-if (localStorage.getItem('deskOne')) {
-    arrDeskOne = JSON.parse(localStorage.getItem('deskOne'));
-    arrDeskOne.forEach((item) => {
-        createDeskOne(item)
+export let arrSearchOne = [];
+if (localStorage.getItem('deskSearchOne')) {
+    arrSearchOne = JSON.parse(localStorage.getItem('deskSearchOne'));
+    arrSearchOne.forEach((item) => {
+        createDeskSearchOne(item)
     });
 }
 
 //Массив и local storage для доски 2
-export let arrDeskTwo = [];
-if (localStorage.getItem('deskTwo')) {
-    arrDeskTwo = JSON.parse(localStorage.getItem('deskTwo'));
-    arrDeskTwo.forEach((item) => {
-        createDeskTwo(item)
+export let arrSearchTwo = [];
+if (localStorage.getItem('deskSearchTwo')) {
+    arrSearchTwo = JSON.parse(localStorage.getItem('deskSearchTwo'));
+    arrSearchTwo.forEach((item) => {
+        createDeskSearchTwo(item)
     });
 } 
 
 //Массив и local storage для доски 3
-export let arrDeskThree = [];
-if (localStorage.getItem('deskThree')) {
-    arrDeskThree = JSON.parse(localStorage.getItem('deskThree'));
-    arrDeskThree.forEach((item) => {
-        createDeskThree(item)
+export let arrSearchThree = [];
+if (localStorage.getItem('deskSearchThree')) {
+    arrSearchThree = JSON.parse(localStorage.getItem('deskSearchThree'));
+    arrSearchThree.forEach((item) => {
+        createDeskSearchThree(item)
     });
 }
 
 //Функция для отображения элементов добавленных на доску 1
-export function createDeskOne(obj) {
+export function createDeskSearchOne(obj) {
     let imageOnDesk = document.createElement('img');
     imageOnDesk.src = obj.src;
     imageOnDesk.style.cssText = imageStyle;
@@ -40,7 +37,7 @@ export function createDeskOne(obj) {
 }
 
 //Функция для отображения элементов добавленных на доску 2
-export function createDeskTwo(obj) {
+export function createDeskSearchTwo(obj) {
     let imageOnDesk = document.createElement('img');
     imageOnDesk.src = obj.src;
     imageOnDesk.style.cssText = imageStyle;
@@ -48,7 +45,7 @@ export function createDeskTwo(obj) {
 }
 
 //Функция для отображения элементов добавленных на доску 3
-export function createDeskThree(obj) {
+export function createDeskSearchThree(obj) {
     let imageOnDesk = document.createElement('img');
     imageOnDesk.src = obj.src;
     imageOnDesk.style.cssText = imageStyle;

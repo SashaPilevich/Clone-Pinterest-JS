@@ -12,6 +12,21 @@ export const btnStyle = `
     padding: 15px;
     `;
 
+export const btnSaveStyle = `
+    width:60%;
+    height:15%;
+    border-radius: 20px;
+    color: white;
+    font-family: Open sans, 'sans-serif';
+    font-size: 10px;
+    background-color:brown;
+    cursor:pointer;
+    border: none;
+    text-align:center;
+    padding: 15px;
+    margin-bottom: 30px;
+`
+
 export const aboutStyle = `
     display: flex;
     align-items:center;
@@ -37,6 +52,6 @@ export const avatarStyle = `
 
 export const helperStyle = `
     display: grid;
-    grid-template-columns:repeat(5, 1fr);
-    column-gap: 50px;
+    grid-template-columns:repeat(6, 1fr);
+    column-gap: 30px;
     `;
