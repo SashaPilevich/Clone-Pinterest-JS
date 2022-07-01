@@ -39,7 +39,7 @@
       /* обнуляющий код */
     
     .header_container {
-        margin: 0 auto;
+        margin: 5px auto;
         padding: 0 15px;
         max-width: 1400px;
         height: 48px;
@@ -447,33 +447,60 @@
     border: none;
     margin-bottom: 30px;
     }
-    .modal__close {
-        position:absolute;
-        top:8px;
-        right:14px;
-        font-size:30px;
-        color:#000;
-        opacity:.5;
-        font-weight:700;
-        border:none;
-        background-color:transparent;
-        cursor:pointer;
-    }
+.modal__close {
+    position:absolute;
+    top:8px;
+    right:14px;
+    font-size:30px;
+    color:#000;
+    opacity:.5;
+    font-weight:700;
+    border:none;
+    background-color:transparent;
+    cursor:pointer;
+}
       
-    .show {
-        display:block;
-    }
+.show {
+    display:block;
+}
       
-    .hide {
-        display:none;
-    }
+.hide {
+    display:none;
+}
    
+.btn {
+    width: 60%;
+    height: 15%;
+    border-radius: 20px;
+    color: white;
+    font-family: "Open sans", "sans-serif";
+    font-size: 10px;
+    background-color: brown;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    padding: 10px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    
-    
-    
+.menu-mobile {
+    display: none;
+    position: relative;
+}
 
-    
-    
-    
-    
+.mobile-items {
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+}
+
+.mobile-items .tab-btn {
+    padding: 10px 60px;
+}
