@@ -6,24 +6,28 @@ export const btnSave = document.querySelector('.save');
 export const inputCreate = document.querySelector('.inputCreateDesk');
 //сохранение фото на созданной доске
 btnSave.addEventListener('click', () => {
+    //объект для создания нового таба
     let saveObj = {};
     saveObj.name = inputCreate.value;
     newTab.push(saveObj);
     createTab(saveObj)
     localStorage.setItem('newTab', JSON.stringify(newTab))
 
+    //объект для создания нового таба в бургер меню
     let saveMobile = {};
     saveMobile.name = inputCreate.value;
     mobile.push(saveMobile);
     createMobile(saveMobile)
     localStorage.setItem('mobile', JSON.stringify(mobile))
 
+    //объект для создания новой кнопки в модальном окне создания доски
     let saveModalButton = {};
     saveModalButton.name = inputCreate.value;
     newModalBtn.push(saveModalButton);
     createModalButton(saveModalButton);
     localStorage.setItem('newModalBtn', JSON.stringify(newModalBtn))
 
+    //объект для создания и сохранения выбранного фото на доске
     let saveImg = {};
     saveImage.name = inputCreate.value;
     saveImg.src = currentImg.src;

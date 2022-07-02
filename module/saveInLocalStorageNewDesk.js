@@ -32,6 +32,7 @@ if (localStorage.getItem('newTab')) {
         createTab(item);
     })
 }
+//добавление нового таба с именем новой доски для бургер меню
 if (localStorage.getItem('mobile')) {
     mobile = JSON.parse(localStorage.getItem('mobile'))
     mobile.forEach((item) => {
@@ -60,6 +61,7 @@ export function createTab(obj) {
     tabBtn.setAttribute('data-btn', tabs.children.length + 1)
     tabs.append(tabBtn);
 }
+//функция создания кнопки нового таба для бургер меню
 export function createMobile(obj) {
     tabMobile = document.createElement('button');
     tabMobile.innerHTML = obj.name;
@@ -93,7 +95,7 @@ export function createModalButton(obj) {
 //функция добавления фото в уже созданную доску
 export function createAddImage(obj) {
     let addDesk = document.createElement('div');
-    addDesk.setAttribute('data-content',obj.id)
+    addDesk.setAttribute('data-content',obj.id)//такой как значение атрибута у tabs
     addDesk.classList.add('images', 'content');
     
     let additionalImage = document.createElement('img');

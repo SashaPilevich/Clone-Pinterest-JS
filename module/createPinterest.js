@@ -60,10 +60,10 @@ export function createPinterest(obj) {
     function saveImg(blob) {
         let link = document.createElement('a');
         link.setAttribute('href', URL.createObjectURL(blob));
-        link.setAttribute('download', `${Date.now()}`);
+        link.setAttribute('download', `${Date.now()}`);//загрузить сейчас
         link.click();
     }
-      
+    //берем src картинки
     linkSave.addEventListener('click', () => {
         fetch(img.src)
           .then((response_object) => response_object.blob())
