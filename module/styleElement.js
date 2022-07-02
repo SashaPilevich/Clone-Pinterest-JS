@@ -52,6 +52,17 @@ export const avatarStyle = `
 
 export const helperStyle = `
     display: grid;
-    grid-template-columns:repeat(6, 1fr);
+    grid-template-columns:repeat(5, 1fr);
     column-gap: 30px;
     `;
+
+export const modalBtnStyle = `
+    width:100px;
+    height:30px;
+    padding: 2px;
+    border-radius: 20px;
+    color: white;
+    background-color:brown;
+    cursor:pointer;
+    border: none;
+    margin-bottom: 30px;`

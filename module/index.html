@@ -29,6 +29,20 @@
                 <button class="tab-btn" data-btn="4">Доска 3</button>
             </div>
         </div>
+        <div class="menu-mobile">
+            <button class="mobile-burger">
+                <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0H24V3H0V0ZM0 7.5H24V10.5H0V7.5ZM0 15H24V18H0V15Z" fill="white"/>
+                </svg>                    
+            </button>
+
+            <div class="mobile-items">
+                <button class="tab-btn active" data-btn="1">Главная</button>
+                <button class="tab-btn" data-btn="2">Доска 1</button> 
+                <button class="tab-btn" data-btn="3">Доска 2</button>
+                <button class="tab-btn" data-btn="4">Доска 3</button>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -36,9 +50,10 @@
     
     <div class="container">
         <div class="helper"></div>
-        <section class="contents">
+        <section class="contents ">
             <div class="imageOut content active" data-content="1">
-                <div class="sizer"></div>
+                <div class="sizer">
+                </div>
             </div>
             <div class="imageOut content" data-content="2" id="1">
             </div>
@@ -56,28 +71,28 @@
                     <div class="imageWrapper"></div>
                     <div class="modal__choose">
                         <h5 class="chooseDesk">Выбрать доску</h5>
-                        <button class="tab-btn-one" data-btn="2">Доска 1</button> 
-                        <button class="tab-btn-two" data-btn="3">Доска 2</button>
-                        <button class="tab-btn-three" data-btn="4">Доска 3</button>
+                        <button class="tab-btn-one" data-btn="2" id="11">Доска 1</button> 
+                        <button class="tab-btn-two" data-btn="3" id="12">Доска 2</button>
+                        <button class="tab-btn-three" data-btn="4" id="13">Доска 3</button>
+                        <button class="tab-btn-four" data-btn="5" id="14">Создать доску</button>
                     </div>
+                    
                   <div class="modal__close" data-close>&times;</div>
                 </div>
               </div>
         </div>
     </section>
+<!-- модальное окно создать доску -->
     <section>
-        <!-- модальное окно для картинок найденных по поиску -->
-        <div class="modalSearch">
-            <div class="modal__dialogSearch">
-                <div class="modal__contentSearch">
-                    <div class="imageWrapperSearch"></div>
-                    <div class="modal__chooseSearch">
-                        <h5 class="chooseDeskSearch">Выбрать доску</h5>
-                        <button class="searchOne" data-btn="2">Доска 1</button> 
-                        <button class="searchTwo" data-btn="3">Доска 2</button>
-                        <button class="searchThree" data-btn="4">Доска 3</button>
+        <div class="modalCreateDesk">
+            <div class="modal__dialogCreateDesk">
+                <div class="modal__contentCreateDesk">
+                    <div class="imageWrapperCreateDesk"></div>
+                    <div class="info">
+                        <input class="inputCreateDesk" type="text" placeholder="Введите название доски">
+                        <button class="save">Сохранить</button> 
                     </div>
-                  <div class="modal__closeSearch" data-close>&times;</div>
+                  <div class="modal__closeCreateDesk" data-close>&times;</div>
                 </div>
               </div>
         </div>

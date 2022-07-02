@@ -1,14 +1,15 @@
-import { btnOne, btnTwo, btnThree } from "./eventAddDesk.js";
+import { btnOne, btnTwo, btnThree} from "./eventAddDesk.js";
+import { btnCreateDesk } from "./createNewDesk.js";
 //Функция модального окна "добавить на доску"
 const modalElement = document.querySelector('.modal');
 export function modal() {
     modalElement.addEventListener('click', (e) => {
-        if (
-        e.target === modalElement ||
-        e.target.getAttribute('data-close') == ''
-        ) {
-        closeModal();
-        }
+    if (
+    e.target === modalElement ||
+    e.target.getAttribute('data-close') == ''
+    ) {
+    closeModal();
+    }
     });
     }
     

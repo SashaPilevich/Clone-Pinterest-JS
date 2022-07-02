@@ -1,4 +1,4 @@
-import { modal, openModal } from "./modalAdd.js";
+import { modal, openModal, closeModal } from "./modalAdd.js";
 import { popoutComplain, nextBtn} from "./modalComplaine.js";
 import { currentImg } from "./app.js";
 import { newImages, setImages } from "./newImagesArray.js";
@@ -62,13 +62,13 @@ export function createPinterest(obj) {
         link.setAttribute('href', URL.createObjectURL(blob));
         link.setAttribute('download', `${Date.now()}`);
         link.click();
-      }
+    }
       
     linkSave.addEventListener('click', () => {
         fetch(img.src)
           .then((response_object) => response_object.blob())
           .then((blob_object) => saveImg(blob_object));
-      });
+    });
     
 
     let btnAdd = document.createElement('button');
@@ -87,11 +87,10 @@ export function createPinterest(obj) {
                 currentImg.style.cssText = imageStyle;
                 imageWrapper.append(currentImg);  
         }
-        
                 modal();
                 openModal();    
-        })
-
+    })
+    
     //Подключение "скрыть пин"
     let btnPin = document.createElement('button');
     btnPin.classList.add('btnPin');
@@ -105,7 +104,7 @@ export function createPinterest(obj) {
                     imageOut.addEventListener('click', (event) => {
                         if (event.target.className != 'btnPin') return;
                         let pane = event.target.closest('.wrapper');
-                        pane.style.opacity = '1';
+                        pane.style.opacity = '0.9';
                         let hoverPin = document.createElement('div');
                         hoverPin.classList.add('hoverPin');
                         hoverPin.innerHTML = 'Вы больше не увидите этот пин'

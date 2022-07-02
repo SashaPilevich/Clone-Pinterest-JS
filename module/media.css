@@ -18,6 +18,16 @@
     }
 }
 @media (max-width:768px){
+    .menu-mobile{
+        display: block;
+    }
+
+    .dropdown {
+        display: none;
+    }
+    .btn {
+        font-size: 8px;
+    }
     .imageOut{
         column-count: 3;
     }

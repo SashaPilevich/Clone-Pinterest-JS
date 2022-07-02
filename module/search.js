@@ -1,11 +1,9 @@
-import { helper } from "./app.js"
-import { imageOut } from "./app.js"
+import { helper, imageOut, currentImg } from "./app.js"
 import { newImages, setImages } from "./newImagesArray.js";
 import { setPinterest, getPinterest } from "./localStorage.js";
 import { btnSaveStyle, helperStyle, imageStyle } from "./styleElement.js";
-import { modalSearch, openModalSearch, closeModalSearch } from "./modalSearch.js"
+import { modal, openModal, closeModal } from "./modalAdd.js";
 
-export  let currentImage;
 export let searchId;
 searchId = document.getElementById('searchId');
 
@@ -33,23 +31,21 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
                 linkSearch.innerHTML = 'Сохранить пин'
                 searchHover.append(linkSearch);
 
-                let btnSave = document.createElement('button');
-                btnSave.innerHTML = 'Добавить на доску';
-                btnSave.name = item.name;
-                btnSave.style.cssText = btnSaveStyle;
+                let btnAddDesk = document.createElement('button');
+                btnAddDesk.innerHTML = 'Добавить на доску';
+                btnAddDesk.name = item.name;
+                btnAddDesk.style.cssText = btnSaveStyle;
 
-                btnSave.addEventListener('click', (event) => {
-                    const imageWrapperSearch = document.querySelector('.imageWrapperSearch');
-                    imageWrapperSearch.innerHTML = '';//для того чтобы при повторном открытии модального окна не тянулась картинка с прошлого открытия
-        
+                btnAddDesk.addEventListener('click', (event) => {
+                    const imageWrapper = document.querySelector('.imageWrapper');
+                    imageWrapper.innerHTML = '';
                     if (event.target.closest('.imageContainer')){ 
-                    currentImage = document.createElement('img')
-                    currentImage.src = event.target.name;
-                    currentImage.style.cssText = imageStyle;
-                    imageWrapperSearch.append(currentImage);  
+                    currentImg.src = event.target.name;
+                    currentImg.style.cssText = imageStyle;
+                    imageWrapper.append(currentImg);  
                 }
-                modalSearch();
-                openModalSearch();   
+                modal();
+                openModal();
                 })
 
                 let searchImage = document.createElement('img');//создаем картинку с такими же данными что из совпадения по поиску
@@ -74,7 +70,7 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
 
                 searchWrapper.append(imageContainer);  
                 imageContainer.append(searchHover, searchImage);
-                searchHover.append(btnSave)
+                searchHover.append(btnAddDesk)
                 helper.append(searchWrapper);
                 searchId.value = ''
                 } 
