@@ -12,37 +12,9 @@ export const changeClass = (element) => {
         if (tabs.children[i].dataset.btn > 1) {
             tabs.children[i].classList.remove('active');
         }
-        
     }
     element.classList.add('active');
 };
-
-
-
-// tabs.addEventListener('click', (event) => {
-//     const currTab = event.target.dataset.btn;
-//     changeClass(event.target);
-//     for (let i = 0; i < contents.children.length; i++) {
-        
-//             contents.children[i].classList.remove('active');
-//         if (contents.children[i].dataset.content === currTab ) {
-//             console.log(contents.children[i].dataset.content)
-//             contents.children[i].classList.add('active');
-//             contents.classList.add('activeDesk')
-            
-//         } else if (currTab === 1) {
-//             contents.classList.remove('activeDesk')
-//         }
-//         helper.innerHTML = '';
-//     }
-// });
-// btnMain.addEventListener('click', () => {
-    
-   
-//     imageOut.classList.add('active');
-//     contents.classList.remove('activeDesk')
-    
-// });
 
 tabs.addEventListener('click', (event) => {
     const currTab = event.target.dataset.btn;
@@ -63,8 +35,8 @@ tabs.addEventListener('click', (event) => {
         helper.innerHTML = '';
     }
 });
+
 btnMain.addEventListener('click', () => {
     imageOut.classList.add('activeMain');
-    imageOut.classList.remove('active');
 });
 

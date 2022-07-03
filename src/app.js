@@ -1,4 +1,4 @@
-import {  changeClass } from "./chooseDesk.js";
+import { changeClass } from "./chooseDesk.js";
 import { tabs, content } from "./saveInLocalStorageNewDesk.js";
 import { searchId, btnMain } from "./search.js";
 import { createPinterest } from "./createPinterest.js";

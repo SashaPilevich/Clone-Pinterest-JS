@@ -17,18 +17,29 @@
         width: 21%;
     }
 }
+@media (max-width:900px){
+    .btnAdd,
+    .btnPin,
+    .btnComplaine,
+    .link,
+    .linkSearch,
+    .btnAddDesk{
+        width:100px;
+        height: 40px;
+        border-radius: 20px;
+    }
+    
+}
 @media (max-width:768px){
     .menu-mobile{
         display: block;
     }
-
     .dropdown {
         display: none;
     }
     .btn {
         font-size: 8px;
     }
-    
     .imageOut{
         column-count: 3;
     }
@@ -38,6 +49,46 @@
     .wrapper {
         width: 26%;
         margin: 2.5%;
+    }
+    .contents.activeDesk,
+    .helper{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+        row-gap: 20px;
+    }
+}
+@media (max-width:600px){
+    .btnAdd,
+    .btnPin,
+    .btnComplaine,
+    .link,
+    .linkSearch,
+    .btnAddDesk{
+        width:80px;
+        height: 30px;
+        border-radius: 20px;
+        padding: 8px;
+        font-size: 8px;
+    }
+}
+@media (max-width:450px){
+    .btnAdd,
+    .btnPin,
+    .btnComplaine,
+    .link,
+    .linkSearch,
+    .btnAddDesk{
+        height: 20px;
+        border-radius: 20px;
+        padding: 4px;
+        font-size: 6px;
+    }
+    .additionalImage,
+    .newImageOnDesk{
+        width:100%;
+        height: auto;
+        border-radius:20px
     }
 }
 @media (max-width:426px){
@@ -51,6 +102,25 @@
         width: 40%;
         margin: 4%;
     }
+    .contents.activeDesk,
+    .helper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+        row-gap: 20px;
+    }
+    .btnAdd,
+    .btnPin,
+    .btnComplaine,
+    .link,
+    .linkSearch,
+    .btnAddDesk{
+        width:80px;
+        height: 30px;
+        border-radius: 20px;
+        padding: 8px;
+        font-size: 8px;
+    }
 }
 @media (max-width:376px){
     .imageOut{
@@ -62,6 +132,25 @@
     .wrapper {
         width: 100%;
         margin: 0.5%;
+    }
+    .contents.activeDesk,
+    .helper {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 20px;
+        row-gap: 20px;
+    }
+    .btnAdd,
+    .btnPin,
+    .btnComplaine,
+    .link,
+    .linkSearch,
+    .btnAddDesk{
+        width:120px;
+        height: 40px;
+        border-radius: 20px;
+        font-size: 10px;
+        padding: 12px;
     }
 }
 @media (max-width:320px){

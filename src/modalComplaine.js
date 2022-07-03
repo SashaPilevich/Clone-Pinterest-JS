@@ -17,8 +17,6 @@ document.addEventListener('keydown', (e) => {
       }
     });
 
-//    второе модальное
-
 nextBtn.addEventListener('click', function openSecondModal(){
     nextModal.style.display = "block";
     popoutComplain.style.display = "none";

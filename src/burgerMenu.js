@@ -39,9 +39,9 @@ mobileItems.addEventListener('click', (event) => {
     helper.innerHTML = '';
 }
 });
+
 btnMain.addEventListener('click', () => {
 imageOut.classList.add('activeMain');
-imageOut.classList.remove('active');
 });
 
 

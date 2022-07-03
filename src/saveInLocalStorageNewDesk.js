@@ -2,7 +2,7 @@ import { modalBtnStyle } from "./styleElement.js";
 import { closeModal } from "./modalAdd.js";
 import { currentImg } from "./app.js";
 import { mobileItems } from "./burgerMenu.js";
-import { sizer } from "./app.js";
+
 export const contents = document.querySelector('.contents')
 export let content = document.querySelectorAll('.content');
 export let tabs = document.querySelector('.tabs');

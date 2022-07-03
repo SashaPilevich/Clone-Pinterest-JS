@@ -1,7 +1,7 @@
 import { helper, imageOut, currentImg } from "./app.js"
 import { newImages, setImages } from "./newImagesArray.js";
 import { setPinterest, getPinterest } from "./localStorage.js";
-import { btnSaveStyle, btnStyle, helperStyle, imageStyle } from "./styleElement.js";
+import { imageStyle } from "./styleElement.js";
 import { modal, openModal, closeModal } from "./modalAdd.js";
 import { contents } from "./saveInLocalStorageNewDesk.js";
 
@@ -16,7 +16,6 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
             newImages.filter((item) => {
                 if(valueSearch === (item.hashtag).toLowerCase().replace('#','')) {//сравниваем то что введено в поиск и хештегом каждого объекта
                 //и если есть совпадения то рисуем это на UI
-                // helper.style.cssText = helperStyle;
                 imageOut.classList.remove('activeMain');//скрываем главную страницу
                 let searchWrapper = document.createElement('div');//создаем новый контейнер общий для всех найденных фото
 
@@ -28,7 +27,6 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
 
                 let linkSearch = document.createElement('button');//кнопка для скачивания картинки
                 linkSearch.classList.add('linkSearch');
-                // linkSearch.style.cssText = btnStyle;
                 linkSearch.style.marginBottom = '30px'
                 linkSearch.innerHTML = 'Сохранить пин'
                 searchHover.append(linkSearch);
@@ -37,7 +35,6 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
                 btnAddDesk.classList.add('btnAddDesk')
                 btnAddDesk.innerHTML = 'Добавить на доску';
                 btnAddDesk.name = item.name;
-                // btnAddDesk.style.cssText = btnStyle;
 
                 btnAddDesk.addEventListener('click', (event) => {
                     const imageWrapper = document.querySelector('.imageWrapper');
@@ -54,7 +51,6 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
                 let searchImage = document.createElement('img');//создаем картинку с такими же данными что из совпадения по поиску
                 searchImage.classList.add('searchImage');
                 searchImage.src = item.name;
-                // searchImage.style.cssText = imageStyle;
                 searchImage.style.marginRight = '30px';
 
                 //скачивание картинки//изучить про объект blob
@@ -84,7 +80,6 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
 //для того чтобы при нажатии на главную страницу исчезало то что нашлось по хештегу
 export const btnMain = document.getElementById(10);
 btnMain.addEventListener('click', () => {
-    // imageOut.classList.remove('active')
     imageOut.classList.add('activeMain');
     helper.innerHTML = ''
 });
