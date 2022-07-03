@@ -18,6 +18,17 @@
     }
 }
 @media (max-width:768px){
+    .menu-mobile{
+        display: block;
+    }
+
+    .dropdown {
+        display: none;
+    }
+    .btn {
+        font-size: 8px;
+    }
+    
     .imageOut{
         column-count: 3;
     }
@@ -27,11 +38,6 @@
     .wrapper {
         width: 26%;
         margin: 2.5%;
-    }
-    .btnAdd,
-    .btnPin,
-    .btnComplaine {
-        font-size: 10px;
     }
 }
 @media (max-width:426px){

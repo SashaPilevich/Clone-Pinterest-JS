@@ -237,24 +237,10 @@ function createPinterest(obj) {
     hoverMenu = document.createElement('div');
     hoverMenu.classList.add('hoverMenu');
 
-    const btnStyle = `
-    width:60%;
-    height:15%;
-    border-radius: 20px;
-    color: white;
-    font-family: Open sans, 'sans-serif';
-    font-size: 10px;
-    background-color:brown;
-    cursor:pointer;
-    border: none;
-    text-align:center;
-    padding: 15px;
-    `;
-
     //чтобы можно было скачать картинку
     let link = document.createElement('a');
     link.classList.add('link');
-    link.style.cssText = btnStyle;
+    link.classList.add('btn');
     link.download = obj.name;
     link.href = obj.name;
     link.innerHTML = 'Сохранить пин'
@@ -265,7 +251,7 @@ function createPinterest(obj) {
     btnAdd.classList.add('btnAdd');
     btnAdd.name = obj.name;
     btnAdd.textContent = 'Добавить на доску';
-    btnAdd.style.cssText = btnStyle;
+    btnAdd.classList.add('btn');
 
     btnAdd.addEventListener('click', (event) => {
         imageWrapper.innerHTML = '';//для того чтобы при повторном открытии модального окна не тянулась картинка с прошлого открытия
@@ -289,7 +275,7 @@ function createPinterest(obj) {
     btnPin = document.createElement('button');
     btnPin.classList.add('btnPin');
     btnPin.textContent = 'Скрыть пин со страницы';
-    btnPin.style.cssText = btnStyle;
+    btnPin.classList.add('btn');
 
     btnPin.addEventListener('click', () => {
         for (let i = 0; i < newImages.length; i++) {
@@ -315,7 +301,7 @@ function createPinterest(obj) {
     btnComplaine = document.createElement('button');
     btnComplaine.classList.add('btnComplaine');
     btnComplaine.textContent = 'Пожаловаться';
-    btnComplaine.style.cssText = btnStyle;
+    btnComplaine.classList.add('btn');
 
     const popoutComplain = document.querySelector(".popout_complain");
     const popoutContent = document.querySelector(".complain_content");
@@ -435,6 +421,42 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
             });  
 } 
 });
+
+//бургер-меню
+let burgerMenu = document.querySelector('.mobile-burger');
+let mobileItems = document.querySelector('.mobile-items');
+let menuMobile = document.querySelector('.menu-mobile');
+
+burgerMenu.addEventListener('click', () => {
+    if (mobileItems.style.display == 'block') {
+        mobileItems.style.display = 'none';
+    } else {
+        mobileItems.style.display = 'block';
+    }
+});
+
+let body = document.querySelector('body');
+body.addEventListener('click', (event) => {
+    if (! menuMobile.contains(event.target)) {
+        mobileItems.style.display = 'none';
+    }
+});
+
+let mobileBtns = document.querySelectorAll('.mobile-items .tab-btn');
+mobileBtns.forEach(mobileBtn => {
+    mobileBtn.addEventListener('click', (event) => {
+        let id = event.currentTarget.dataset.btn;
+
+        document.querySelectorAll('.content').forEach(content => {
+            if (content.dataset.content == id) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+    });
+});
+
 //для того чтобы при нажатии на главную страницу исчезало то что нашлось по хештегу
 const btnMain = document.getElementById(10);
 btnMain.addEventListener('click', () => {

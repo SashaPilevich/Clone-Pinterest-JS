@@ -1,13 +1,14 @@
+import { getDeskOne, getDeskThree, getDeskTwo } from "./localStorage.js";
 import { imageStyle } from "./styleElement.js";
 //Контейнеры которые появляются при переключении досок
-const deskOne = document.getElementById(1);
-const deskTwo = document.getElementById(2);
-const deskThree = document.getElementById(3);
+export const deskOne = document.getElementById(1);
+export const deskTwo = document.getElementById(2);
+export const deskThree = document.getElementById(3);
 
 //Массив и local storage для доски 1
 export let arrDeskOne = [];
-if (localStorage.getItem('deskOne')) {
-    arrDeskOne = JSON.parse(localStorage.getItem('deskOne'));
+if (getDeskOne()) {
+    arrDeskOne = JSON.parse(getDeskOne());
     arrDeskOne.forEach((item) => {
         createDeskOne(item)
     });
@@ -15,8 +16,8 @@ if (localStorage.getItem('deskOne')) {
 
 //Массив и local storage для доски 2
 export let arrDeskTwo = [];
-if (localStorage.getItem('deskTwo')) {
-    arrDeskTwo = JSON.parse(localStorage.getItem('deskTwo'));
+if (getDeskTwo()) {
+    arrDeskTwo = JSON.parse(getDeskTwo());
     arrDeskTwo.forEach((item) => {
         createDeskTwo(item)
     });
@@ -24,8 +25,8 @@ if (localStorage.getItem('deskTwo')) {
 
 //Массив и local storage для доски 3
 export let arrDeskThree = [];
-if (localStorage.getItem('deskThree')) {
-    arrDeskThree = JSON.parse(localStorage.getItem('deskThree'));
+if (getDeskThree()) {
+    arrDeskThree = JSON.parse(getDeskThree());
     arrDeskThree.forEach((item) => {
         createDeskThree(item)
     });

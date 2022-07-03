@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +29,20 @@
                 <button class="tab-btn" data-btn="4">Доска 3</button>
             </div>
         </div>
+        <div class="menu-mobile">
+            <button class="mobile-burger">
+                <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0H24V3H0V0ZM0 7.5H24V10.5H0V7.5ZM0 15H24V18H0V15Z" fill="white"/>
+                </svg>                    
+            </button>
+
+            <div class="mobile-items">
+                <button class="tab-btn active" data-btn="1">Главная</button>
+                <button class="tab-btn" data-btn="2">Доска 1</button> 
+                <button class="tab-btn" data-btn="3">Доска 2</button>
+                <button class="tab-btn" data-btn="4">Доска 3</button>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -36,9 +50,10 @@
     
     <div class="container">
         <div class="helper"></div>
-        <section class="contents">
+        <section class="contents ">
             <div class="imageOut content active" data-content="1">
-                <div class="sizer"></div>
+                <div class="sizer">
+                </div>
             </div>
             <div class="imageOut content" data-content="2" id="1">
             </div>
@@ -56,11 +71,28 @@
                     <div class="imageWrapper"></div>
                     <div class="modal__choose">
                         <h5 class="chooseDesk">Выбрать доску</h5>
-                        <button class="tab-btn-one" data-btn="2">Доска 1</button> 
-                        <button class="tab-btn-two" data-btn="3">Доска 2</button>
-                        <button class="tab-btn-three" data-btn="4">Доска 3</button>
+                        <button class="tab-btn-one" data-btn="2" id="11">Доска 1</button> 
+                        <button class="tab-btn-two" data-btn="3" id="12">Доска 2</button>
+                        <button class="tab-btn-three" data-btn="4" id="13">Доска 3</button>
+                        <button class="tab-btn-four">Создать доску</button>
                     </div>
+                    
                   <div class="modal__close" data-close>&times;</div>
+                </div>
+              </div>
+        </div>
+    </section>
+<!-- модальное окно создать доску -->
+    <section>
+        <div class="modalCreateDesk">
+            <div class="modal__dialogCreateDesk">
+                <div class="modal__contentCreateDesk">
+                    <div class="imageWrapperCreateDesk"></div>
+                    <div class="info">
+                        <input class="inputCreateDesk" type="text" placeholder="Введите название доски">
+                        <button class="save">Сохранить</button> 
+                    </div>
+                  <div class="modal__closeCreateDesk" data-close>&times;</div>
                 </div>
               </div>
         </div>

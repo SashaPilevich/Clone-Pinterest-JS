@@ -22,7 +22,6 @@ document.addEventListener('keydown', (e) => {
 nextBtn.addEventListener('click', function openSecondModal(){
     nextModal.style.display = "block";
     popoutComplain.style.display = "none";
-
 })
 
 nextModalClose.addEventListener('click', function closeSecondModal(){
