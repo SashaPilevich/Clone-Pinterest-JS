@@ -1,6 +1,9 @@
 export const btnStyle = `
     width:60%;
     height:15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 20px;
     color: white;
     font-family: Open sans, 'sans-serif';

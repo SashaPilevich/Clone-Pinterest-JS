@@ -98,7 +98,6 @@ export function createPinterest(obj) {
     btnPin.style.cssText = btnStyle;
 
     btnPin.addEventListener('click', () => {
-        for (let i = 0; i < newImages.length; i++) {
             setImages(newImages.filter((item) => {
                 if(item.name !== obj.name){
                     imageOut.addEventListener('click', (event) => {
@@ -113,7 +112,6 @@ export function createPinterest(obj) {
                     return item;
                 }
             }))
-        }
         setPinterest(newImages);
     });
     
