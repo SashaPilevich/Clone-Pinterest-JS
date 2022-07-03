@@ -59,7 +59,7 @@ export function createPinterest(obj) {
     //скачивание картинки//изучить про объект blob
     function saveImg(blob) {
         let link = document.createElement('a');
-        link.setAttribute('href', URL.createObjectURL(blob));
+        link.setAttribute('href', URL.createObjectURL(blob));//URL.createObjectURL(blob)-метод,который создаёт строку с url с указанием на объект,заданный как параметр
         link.setAttribute('download', `${Date.now()}`);//загрузить сейчас
         link.click();
     }
