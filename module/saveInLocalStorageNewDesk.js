@@ -56,9 +56,9 @@ if (localStorage.getItem('addImage')) {
 //функция создания кнопки нового таба
 export function createTab(obj) {
     tabBtn = document.createElement('button');
-    tabBtn.innerHTML = obj.name;
+    tabBtn.innerHTML = obj.name;//значение inputCreate.value
     tabBtn.classList.add('tab-btn')
-    tabBtn.setAttribute('data-btn', tabs.children.length + 1)
+    tabBtn.setAttribute('data-btn', tabs.children.length + 1)//для переключения досок
     tabs.append(tabBtn);
 }
 //функция создания кнопки нового таба для бургер меню
@@ -72,7 +72,7 @@ export function createMobile(obj) {
 //функция создания кнопки в модальном окне с именем доски 
 export function createModalButton(obj) {
     modalBtn = document.createElement('button');
-    modalBtn.innerHTML = obj.name;
+    modalBtn.innerHTML = obj.name;//значение inputCreate.value
     modalBtn.name = obj.name;
     modalBtn.style.cssText = modalBtnStyle;
     modalBtn.classList.add('tab-btn')
@@ -82,9 +82,8 @@ export function createModalButton(obj) {
 //добавление фото в уже созданную доску
     modalBtn.addEventListener('click', (event) => {
         let addNewImage = {};
-        addNewImage.src = currentImg.src;
-        addNewImage.id = event.target.dataset.btn;
-        addNewImage.name = modalBtn.name;
+        addNewImage.src = currentImg.src;//фото по которому произошел клик
+        addNewImage.id = event.target.dataset.btn;//присваивается id который равен номеру атрибута data-btn ,по этому id понимает на какую доску из существующих добавить фото
         addImage.push(addNewImage);
         createAddImage(addNewImage)
         localStorage.setItem('addImage', JSON.stringify(addImage));

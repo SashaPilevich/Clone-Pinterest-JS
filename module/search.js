@@ -17,21 +17,21 @@ if (imageOut.innerHTML && valueSearch) { //проверка на присутс�
                 //и если есть совпадения то рисуем это на UI
                 helper.style.cssText = helperStyle;
                 imageOut.classList.remove('active');//скрываем главную страницу
-                let searchWrapper = document.createElement('div');//создаем новый контейнер
+                let searchWrapper = document.createElement('div');//создаем новый контейнер общий для всех найденных фото
 
-                let imageContainer = document.createElement('div');
+                let imageContainer = document.createElement('div');// создаем контейнер в котором будет храниться каждая отдельная картинка
                 imageContainer.classList.add('imageContainer');
 
-                let searchHover = document.createElement('div');
+                let searchHover = document.createElement('div');//меню которое появляется при наведении
                 searchHover.classList.add('searchHover');
 
-                let linkSearch = document.createElement('button');
+                let linkSearch = document.createElement('button');//кнопка для скачивания картинки
                 linkSearch.classList.add('linkSearch');
                 linkSearch.style.cssText = btnSaveStyle;
                 linkSearch.innerHTML = 'Сохранить пин'
                 searchHover.append(linkSearch);
 
-                let btnAddDesk = document.createElement('button');
+                let btnAddDesk = document.createElement('button');//кнопка для добавления картинки на доску
                 btnAddDesk.innerHTML = 'Добавить на доску';
                 btnAddDesk.name = item.name;
                 btnAddDesk.style.cssText = btnSaveStyle;
