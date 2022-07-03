@@ -1,6 +1,8 @@
 export const btnStyle = `
-    width:60%;
-    height:15%;
+    // width:60%;
+    // height:15%;
+    width:120px;
+    height: 40px;
     border-radius: 20px;
     color: white;
     font-family: Open sans, 'sans-serif';
@@ -9,7 +11,7 @@ export const btnStyle = `
     cursor:pointer;
     border: none;
     text-align:center;
-    padding: 15px;
+    padding: 12px;
     `;
 
 export const btnSaveStyle = `

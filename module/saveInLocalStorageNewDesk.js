@@ -2,6 +2,7 @@ import { modalBtnStyle } from "./styleElement.js";
 import { closeModal } from "./modalAdd.js";
 import { currentImg } from "./app.js";
 import { mobileItems } from "./burgerMenu.js";
+import { sizer } from "./app.js";
 export const contents = document.querySelector('.contents')
 export let content = document.querySelectorAll('.content');
 export let tabs = document.querySelector('.tabs');
@@ -94,31 +95,26 @@ export function createModalButton(obj) {
 //функция добавления фото в уже созданную доску
 export function createAddImage(obj) {
     let addDesk = document.createElement('div');
-    addDesk.setAttribute('data-content',obj.id)//такой как значение атрибута у tabs
+    addDesk.setAttribute('data-content',obj.id)//такой как значение атрибута у tabs и у modalBtn
     addDesk.classList.add('images', 'content');
     
     let additionalImage = document.createElement('img');
+    additionalImage.classList.add('additionalImage');
     additionalImage.src = obj.src;
-    additionalImage.style.cssText = `
-    width:20%;
-    height: auto;
-    border-radius:20px`;
     addDesk.append(additionalImage)
     contents.append(addDesk)
+    
 }
 
 //функция добавления фото на доску которую создали сами
 export function createNewImageOnDesk(obj) {
     newDesk = document.createElement('div');
     newDesk.classList.add('images', 'content');
-    newDesk.setAttribute('data-content', contents.children.length + 1)
+    newDesk.setAttribute('data-content', contents.children.length + 1)//чтобы создавались div с определенным порядковым номером чтоб потом могли переключать при выборе доски
     
     let newImageOnDesk = document.createElement('img');
+    newImageOnDesk.classList.add('newImageOnDesk')
     newImageOnDesk.src = obj.src;
-    newImageOnDesk.style.cssText = `
-    width: 20%;
-    height: auto;
-    border-radius: 20px`;
     newDesk.append(newImageOnDesk);
     contents.append(newDesk);
 }

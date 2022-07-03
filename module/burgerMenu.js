@@ -1,5 +1,6 @@
 import { contents } from "./saveInLocalStorageNewDesk.js";
-import { helper } from "./app.js"
+import { helper, imageOut } from "./app.js";
+import { btnMain } from "./search.js";
 export let burgerMenu = document.querySelector('.mobile-burger');
 export let mobileItems = document.querySelector('.mobile-items');
 export let menuMobile = document.querySelector('.menu-mobile');
@@ -23,11 +24,27 @@ mobileItems.addEventListener('click', (event) => {
     const currentTab = event.target.dataset.btn;
     change(event.target);
     for (let i = 0; i < contents.children.length; i++) {
+        contents.children[i].classList.remove('activeMain');
         contents.children[i].classList.remove('active');
-        if (contents.children[i].dataset.content === currentTab) {
-            contents.children[i].classList.add('active');
-        }
-        helper.innerHTML = '';
+
+    if (currentTab === '1' ) {
+        contents.classList.remove('activeDesk');
+        imageOut.classList.add('activeMain');
+        
+    } else if (contents.children[i].dataset.content === currentTab) {
+        contents.children[i].classList.add('active');
+        contents.classList.add('activeDesk')
+        
     }
+    helper.innerHTML = '';
+}
 });
+btnMain.addEventListener('click', () => {
+imageOut.classList.add('activeMain');
+imageOut.classList.remove('active');
+});
+
+
+    
+
 

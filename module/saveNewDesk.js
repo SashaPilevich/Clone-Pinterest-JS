@@ -6,9 +6,9 @@ export const btnSave = document.querySelector('.save');
 export const inputCreate = document.querySelector('.inputCreateDesk');
 //сохранение фото на созданной доске
 btnSave.addEventListener('click', () => {
-    //объект для создания нового таба
+    //объект для создания нового таба в выбрать доску
     let saveObj = {};
-    saveObj.name = inputCreate.value;
+    saveObj.name = inputCreate.value;//то что ввели в input -название доски
     newTab.push(saveObj);
     createTab(saveObj)
     localStorage.setItem('newTab', JSON.stringify(newTab))

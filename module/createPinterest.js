@@ -52,7 +52,7 @@ export function createPinterest(obj) {
 
     let linkSave = document.createElement('button');
     linkSave.classList.add('link');
-    linkSave.style.cssText = btnStyle;
+    // linkSave.style.cssText = btnStyle;
     linkSave.innerHTML = 'Сохранить пин';
     hoverMenu.append(linkSave)
 
@@ -76,7 +76,7 @@ export function createPinterest(obj) {
     btnAdd.id = obj.id;
     btnAdd.name = obj.name;
     btnAdd.textContent = 'Добавить на доску';
-    btnAdd.style.cssText = btnStyle;
+    // btnAdd.style.cssText = btnStyle;
 
     btnAdd.addEventListener('click', (event) => {
         const imageWrapper = document.querySelector('.imageWrapper');
@@ -95,10 +95,9 @@ export function createPinterest(obj) {
     let btnPin = document.createElement('button');
     btnPin.classList.add('btnPin');
     btnPin.textContent = 'Скрыть пин';
-    btnPin.style.cssText = btnStyle;
+    // btnPin.style.cssText = btnStyle;
 
     btnPin.addEventListener('click', () => {
-        for (let i = 0; i < newImages.length; i++) {
             setImages(newImages.filter((item) => {
                 if(item.name !== obj.name){
                     imageOut.addEventListener('click', (event) => {
@@ -113,7 +112,6 @@ export function createPinterest(obj) {
                     return item;
                 }
             }))
-        }
         setPinterest(newImages);
     });
     
@@ -121,7 +119,7 @@ export function createPinterest(obj) {
     let btnComplaine = document.createElement('button');
     btnComplaine.classList.add('btnComplaine');
     btnComplaine.textContent = 'Пожаловаться';
-    btnComplaine.style.cssText = btnStyle;
+    // btnComplaine.style.cssText = btnStyle;
 
     btnComplaine.addEventListener('click', function modalComplain(){
         popoutComplain.style.display = "block";
