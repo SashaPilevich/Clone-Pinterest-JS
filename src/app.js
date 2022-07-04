@@ -12,7 +12,7 @@ currentImg = document.createElement('img');
 export let currentImage;
 currentImage = document.createElement('img');
 export let helper;
-helper = document.querySelector('.helper')//контейнер в который складываются фото выбранные по хештегу
+helper = document.querySelector('.helper')
 export let imageOut;
 imageOut = document.querySelector('.imageOut');
 export let sizer;
@@ -20,7 +20,6 @@ sizer = document.querySelector('.sizer');
 
 export function app() {
 const root = document.querySelector('#root');
-//Массив и сохранение в local storage главной страницы
 if (getPinterest()) {
     setImages(JSON.parse(getPinterest()));
     newImages.forEach((item) => {

@@ -3,7 +3,6 @@ import { createPinterest } from "./createPinterest.js";
 import { setPinterest } from "./localStorage.js";
 
 export const URL_API = 'https://62b0c0c4e460b79df04c901b.mockapi.io/api';
-//Функция получения всех данных с Mockapi
 export async function getPinterestImage() {
     const response = await fetch(`${URL_API}/pinterest`);
     const pinterest = await response.json();

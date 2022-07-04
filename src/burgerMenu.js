@@ -26,15 +26,12 @@ mobileItems.addEventListener('click', (event) => {
     for (let i = 0; i < contents.children.length; i++) {
         contents.children[i].classList.remove('activeMain');
         contents.children[i].classList.remove('active');
-
     if (currentTab === '1' ) {
         contents.classList.remove('activeDesk');
-        imageOut.classList.add('activeMain');
-        
+        imageOut.classList.add('activeMain'); 
     } else if (contents.children[i].dataset.content === currentTab) {
         contents.children[i].classList.add('active');
         contents.classList.add('activeDesk')
-        
     }
     helper.innerHTML = '';
 }

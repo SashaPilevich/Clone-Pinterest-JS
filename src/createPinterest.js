@@ -6,12 +6,11 @@ import { imageOut } from "./app.js";
 import { sizer } from "./app.js";
 import { setPinterest, getPinterest } from "./localStorage.js";
 import { aboutStyle, avatarStyle, imageStyle } from "./styleElement.js";
-
+export const imageWrapper = document.querySelector('.imageWrapper');
 export function createPinterest(obj) {
     let wrapper = document.createElement('div');
     wrapper.classList.add('wrapper');
     wrapper.setAttribute('data-key', obj.name);
-    wrapper.id = obj.id;
 
     let imgContainer = document.createElement('div');
     imgContainer.classList.add('imgContainer');
@@ -36,7 +35,6 @@ export function createPinterest(obj) {
     let info = document.createElement('h5');
     info.textContent = obj.description;
 
-    //подключение masonry
     $(document).ready(function() {
     let container = $(".imageOut");
     container.imagesLoaded(function() {
@@ -55,31 +53,25 @@ export function createPinterest(obj) {
     linkSave.innerHTML = 'Сохранить пин';
     hoverMenu.append(linkSave)
 
-    //скачивание картинки//изучить про объект blob
     function saveImg(blob) {
         let link = document.createElement('a');
-        link.setAttribute('href', URL.createObjectURL(blob));//URL.createObjectURL(blob)-метод,который создаёт строку с url с указанием на объект,заданный как параметр
-        link.setAttribute('download', `${Date.now()}`);//загрузить сейчас
+        link.setAttribute('href', URL.createObjectURL(blob));
+        link.setAttribute('download', `${Date.now()}`);
         link.click();
     }
-    //берем src картинки
     linkSave.addEventListener('click', () => {
         fetch(img.src)
           .then((response_object) => response_object.blob())
           .then((blob_object) => saveImg(blob_object));
     });
     
-
     let btnAdd = document.createElement('button');
     btnAdd.classList.add('btnAdd');
-    btnAdd.id = obj.id;
     btnAdd.name = obj.name;
     btnAdd.textContent = 'Добавить на доску';
 
     btnAdd.addEventListener('click', (event) => {
-        const imageWrapper = document.querySelector('.imageWrapper');
-        imageWrapper.innerHTML = '';//для того чтобы при повторном открытии модального окна не тянулась картинка с прошлого открытия
-        
+        imageWrapper.innerHTML = '';
         if (event.target.closest('.wrapper')){ 
                 currentImg.src = event.target.name;
                 currentImg.style.cssText = imageStyle;
@@ -89,7 +81,6 @@ export function createPinterest(obj) {
                 openModal();    
     })
     
-    //Подключение "скрыть пин"
     let btnPin = document.createElement('button');
     btnPin.classList.add('btnPin');
     btnPin.textContent = 'Скрыть пин';
@@ -112,7 +103,6 @@ export function createPinterest(obj) {
         setPinterest(newImages);
     });
     
-    //Подключение модального окна "пожаловаться"
     let btnComplaine = document.createElement('button');
     btnComplaine.classList.add('btnComplaine');
     btnComplaine.textContent = 'Пожаловаться';
@@ -121,7 +111,7 @@ export function createPinterest(obj) {
         popoutComplain.style.display = "block";
         nextBtn.addEventListener('click', () => {
             setImages(newImages.filter((item) => {
-                if(item.name !== obj.name){//тут по условию мы сравниваем наш объект из localStorage(item) с объектом который на UI(obj),и если они не равны,то возвращаем в localStorage все item которые не такие как картинка по которой произошел click
+                if(item.name !== obj.name){
                     return item;
                 }
             }))

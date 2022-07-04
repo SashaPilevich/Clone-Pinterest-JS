@@ -1,10 +1,10 @@
-//модальное окно пожаловаться
 export const popoutComplain = document.querySelector(".popout_complain");
-export const popoutContent = document.querySelector(".complain_content");
-export const cancelBtn = document.querySelector(".cancelBtn");
 export const nextBtn = document.querySelector(".nextBtn");
-export const nextModal = document.querySelector(".next_modal");
-export const nextModalClose = document.querySelector(".next_modal__close");
+
+const popoutContent = document.querySelector(".complain_content");
+const cancelBtn = document.querySelector(".cancelBtn");
+const nextModal = document.querySelector(".next_modal");
+const nextModalClose = document.querySelector(".next_modal__close");
 
 cancelBtn.addEventListener('click', function closeComplain(){
     popoutComplain.style.display = "none";

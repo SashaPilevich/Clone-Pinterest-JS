@@ -1,5 +1,4 @@
 import { btnCreateDesk } from "./createNewDesk.js";
-//модальное окно создания доски
 const modalElementCreateDesk = document.querySelector('.modalCreateDesk');
 export function modalCreateDesk() {
     modalElementCreateDesk.addEventListener('click', (e) => {

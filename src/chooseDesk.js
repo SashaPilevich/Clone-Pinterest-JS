@@ -5,8 +5,6 @@ import { contents } from "./saveInLocalStorageNewDesk.js";
 import { btnMain } from "./search.js"
 import { imageOut } from "./app.js";
 
-/*список выбора досок*/
-
 export const changeClass = (element) => {
     for (let i = 0; i < tabs.children.length; i++) {
         if (tabs.children[i].dataset.btn > 1) {
@@ -29,8 +27,7 @@ tabs.addEventListener('click', (event) => {
             
         } else if (contents.children[i].dataset.content === currTab) {
             contents.children[i].classList.add('active');
-            contents.classList.add('activeDesk')
-            
+            contents.classList.add('activeDesk'); 
         }
         helper.innerHTML = '';
     }
