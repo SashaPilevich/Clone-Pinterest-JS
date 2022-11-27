@@ -30,4 +30,4 @@ export const modalBtnStyle = `
     background-color:brown;
     cursor:pointer;
     border: none;
-    margin-bottom: 30px;`
+    margin-bottom: 30px;`;

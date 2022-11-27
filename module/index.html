@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Calistoga&family=Kaushan+Script&family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="imagesLoaded.js"></script>
+    <script src="masonry.js"></script>
+</head>
+<div id="root"></div>
+<header class="header">
+    <div class="header_container">
+        <div class="pin-icon"><a href="index.html"><img src="icons/pinterest.ico" alt=""></a></div>
+        <input type="text" class="search background_search" id="searchId" placeholder="Поиск">
+        <div class="dropdown">
+            <button class="dropdown-btn">Выбор доски</button>
+            <div class="dropdown-list tabs">
+                <button class="tab-btn" data-btn="1" id="10">Главная</button>
+                <button class="tab-btn" data-btn="2">Доска 1</button> 
+                <button class="tab-btn" data-btn="3">Доска 2</button>
+                <button class="tab-btn" data-btn="4">Доска 3</button>
+            </div>
+        </div>
+        <div class="menu-mobile">
+            <button class="mobile-burger">
+                <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0H24V3H0V0ZM0 7.5H24V10.5H0V7.5ZM0 15H24V18H0V15Z" fill="white"/>
+                </svg>                    
+            </button>
+
+            <div class="mobile-items">
+                <button class="tab-btn active" data-btn="1">Главная</button>
+                <button class="tab-btn" data-btn="2">Доска 1</button> 
+                <button class="tab-btn" data-btn="3">Доска 2</button>
+                <button class="tab-btn" data-btn="4">Доска 3</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<body>
+    
+    <div class="container">
+        <div class="helper"></div>
+        <section class="contents ">
+            <div class="imageOut content active" data-content="1">
+                <div class="sizer">
+                </div>
+            </div>
+            <div class="imageOut content" data-content="2" id="1">
+            </div>
+            <div class="imageOut content" data-content="3" id="2">
+            </div>
+            <div class="imageOut content" data-content="4" id="3">
+            </div>
+        </section>
+    </div>
+    <!-- модальное окно добавить на доску -->
+    <section>
+        <div class="modal">
+            <div class="modal__dialog">
+                <div class="modal__content">
+                    <div class="imageWrapper"></div>
+                    <div class="modal__choose">
+                        <h5 class="chooseDesk">Выбрать доску</h5>
+                        <button class="tab-btn-one" data-btn="2" id="11">Доска 1</button> 
+                        <button class="tab-btn-two" data-btn="3" id="12">Доска 2</button>
+                        <button class="tab-btn-three" data-btn="4" id="13">Доска 3</button>
+                        <button class="tab-btn-four">Создать доску</button>
+                    </div>
+                    
+                  <div class="modal__close" data-close>&times;</div>
+                </div>
+              </div>
+        </div>
+    </section>
+<!-- модальное окно создать доску -->
+    <section>
+        <div class="modalCreateDesk">
+            <div class="modal__dialogCreateDesk">
+                <div class="modal__contentCreateDesk">
+                    <div class="imageWrapperCreateDesk"></div>
+                    <div class="info">
+                        <input class="inputCreateDesk" type="text" placeholder="Введите название доски">
+                        <button class="save">Сохранить</button> 
+                    </div>
+                  <div class="modal__closeCreateDesk" data-close>&times;</div>
+                </div>
+              </div>
+        </div>
+    </section>
+    <section>
+        <div class="popout_complain">
+            <div class="complain_content">
+                <h2>Жалоба на пин</h2>
+                <form action="#">
+                    <div class="restrict">
+                        <input width="20" height="20" type="radio" id="spam" name="complain">
+                    <label for="spam"> <span>Спам</span> 
+                        <p>Вводящие в заблуждение или повторяющиеся публикации</p>
+                    </label>
+                    <input type="radio" id="pornography" name="complain">
+                    <label for="pornography">
+                         <span>Обнаженное тело или порнография</span>
+                        <p>Содержимое сексуального характера</p>
+                    </label>
+                    <input type="radio" id="selfharm" name="complain">
+                    <label for="selfharm"><span>Членовредительство</span>  
+                        <p>Расстройства пищевого поведения, нанесение травм себе, суицид</p>
+                    </label>
+                    <input type="radio" id="lie" name="complain">
+                    <label for="lie"> <span>Ложная инфнормация</span>
+                        <p>Ложная информация о здоровье, климате, голосованиях или теории заговора</p>
+                    </label>
+                    <input type="radio" id="agression" name="complain">
+                    <label for="agression"> <span>Агрессивные действия</span>
+                        <p>Предрассудки, стереотипы, идея превосходства белой расы, оскорбления</p>
+                    </label>
+                    <input type="radio" id="danger" name="complain">
+                    <label for="danger"> <span>Опасные товары</span>
+                        <p>Наркотики, оружие, регулируемые товары</p>
+                    </label>
+                    <input type="radio" id="stalkering" name="complain">
+                    <label for="stalkering">Нарушение конфиденциальности
+                        <p>Оскорбления, угрозы, публикация персональных данных</p>
+                    </label>
+                    <input type="radio" id="violence" name="complain">
+                    <label for="violence"> <span>Сцены насилия</span>
+                        <p>Графическое изображение или пропаганда насилия</p>
+                    </label>
+                    <input type="radio" id="author" name="complain">
+                    <label for="author"> <span>Интеллектуальная собственность</span>
+                        <p>Нарушение авторских прав или прав на товарный знак</p>
+                    </label>
+                    </div>
+                    <div class="complainBtns">
+                        <button class="cancelBtn">Отмена</button>
+                        <button class="nextBtn">Далее</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="next_modal">
+        <div class="next_modal__content">
+        <h3>Ваша жалоба отправлена!</h3>
+        <button class="next_modal__close">OK</button>
+        </div>
+    </div>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
