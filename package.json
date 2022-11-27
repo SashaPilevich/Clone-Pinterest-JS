@@ -1,0 +1,33 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "build": "parcel build./src/index.html--no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SashaPilevich/final-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SashaPilevich/final-project/issues"
+  },
+  "homepage": "https://github.com/SashaPilevich/final-project#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "desandro-matches-selector": "^2.0.2",
+    "ev-emitter": "^2.1.2",
+    "fizzy-ui-utils": "^3.0.0",
+    "get-size": "^3.0.0",
+    "item": "^3.0.0",
+    "jquery": "^3.6.0",
+    "masonry-layout": "^4.2.2",
+    "outlayer": "^2.1.1"
+  }
+}
