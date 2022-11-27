@@ -1,167 +1,172 @@
-@media (max-width:1200px){
-    .container{
-        width: 1024px;
-    }
+@media (max-width: 1200px) {
+  .container {
+    width: 1024px;
+  }
 }
-@media (max-width:1024px){
-    .container{
-        width: 100%;
-    }
-    .imageOut{
-        column-count: 4;
-    }
-    .sizer {
-        width: 21%;
-    }
-    .wrapper {
-        width: 21%;
-    }
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+  .imageOut {
+    column-count: 4;
+  }
+  .sizer {
+    width: 21%;
+  }
+  .wrapper {
+    width: 21%;
+  }
 }
-@media (max-width:900px){
-    .btnAdd,
-    .btnPin,
-    .btnComplaine,
-    .link,
-    .linkSearch,
-    .btnAddDesk{
-        width:100px;
-        height: 40px;
-        border-radius: 20px;
-    }
-    
+@media (max-width: 900px) {
+  .btnAdd,
+  .btnPin,
+  .btnComplaine,
+  .link,
+  .linkSearch,
+  .btnAddDesk {
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+  }
 }
-@media (max-width:768px){
-    .menu-mobile{
-        display: block;
-    }
-    .dropdown {
-        display: none;
-    }
-    .btn {
-        font-size: 8px;
-    }
-    .imageOut{
-        column-count: 3;
-    }
-    .sizer {
-        width: 26%;
-    }
-    .wrapper {
-        width: 26%;
-        margin: 2.5%;
-    }
-    .contents.activeDesk,
-    .helper{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 20px;
-        row-gap: 20px;
-    }
+@media (max-width: 768px) {
+  .menu-mobile {
+    display: block;
+  }
+  .dropdown {
+    display: none;
+  }
+  .btn {
+    font-size: 8px;
+  }
+  .imageOut {
+    column-count: 3;
+  }
+  .sizer {
+    width: 26%;
+  }
+  .wrapper {
+    width: 26%;
+    margin: 2.5%;
+  }
+  .contents.activeDesk,
+  .helper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+  }
 }
-@media (max-width:600px){
-    .btnAdd,
-    .btnPin,
-    .btnComplaine,
-    .link,
-    .linkSearch,
-    .btnAddDesk{
-        width:80px;
-        height: 30px;
-        border-radius: 20px;
-        padding: 8px;
-        font-size: 8px;
-    }
+@media (max-width: 600px) {
+  .btnAdd,
+  .btnPin,
+  .btnComplaine,
+  .link,
+  .linkSearch,
+  .btnAddDesk {
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 8px;
+  }
 }
-@media (max-width:450px){
-    .btnAdd,
-    .btnPin,
-    .btnComplaine,
-    .link,
-    .linkSearch,
-    .btnAddDesk{
-        height: 20px;
-        border-radius: 20px;
-        padding: 4px;
-        font-size: 6px;
-    }
-    .additionalImage,
-    .newImageOnDesk{
-        width:100%;
-        height: auto;
-        border-radius:20px
-    }
+@media (max-width: 450px) {
+  .btnAdd,
+  .btnPin,
+  .btnComplaine,
+  .link,
+  .linkSearch,
+  .btnAddDesk {
+    height: 20px;
+    border-radius: 20px;
+    padding: 4px;
+    font-size: 6px;
+  }
+  .additionalImage,
+  .newImageOnDesk {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  .modal__choose {
+    align-items: flex-start;
+  }
+  .inputCreateDesk {
+    font-size: 10px;
+  }
 }
-@media (max-width:426px){
-    .imageOut{
-        column-count: 2;
-    }
-    .sizer {
-        width: 50%;
-    }
-    .wrapper {
-        width: 40%;
-        margin: 4%;
-    }
-    .contents.activeDesk,
-    .helper {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 20px;
-        row-gap: 20px;
-    }
-    .btnAdd,
-    .btnPin,
-    .btnComplaine,
-    .link,
-    .linkSearch,
-    .btnAddDesk{
-        width:80px;
-        height: 30px;
-        border-radius: 20px;
-        padding: 8px;
-        font-size: 8px;
-    }
+@media (max-width: 426px) {
+  .imageOut {
+    column-count: 2;
+  }
+  .sizer {
+    width: 50%;
+  }
+  .wrapper {
+    width: 40%;
+    margin: 4%;
+  }
+  .contents.activeDesk,
+  .helper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+  .btnAdd,
+  .btnPin,
+  .btnComplaine,
+  .link,
+  .linkSearch,
+  .btnAddDesk {
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 8px;
+  }
 }
-@media (max-width:376px){
-    .imageOut{
-        column-count: 1;
-    }
-    .sizer {
-        width: 100%;
-    }
-    .wrapper {
-        width: 100%;
-        margin: 0.5%;
-    }
-    .contents.activeDesk,
-    .helper {
-        display: grid;
-        grid-template-columns: 1fr;
-        column-gap: 20px;
-        row-gap: 20px;
-    }
-    .btnAdd,
-    .btnPin,
-    .btnComplaine,
-    .link,
-    .linkSearch,
-    .btnAddDesk{
-        width:120px;
-        height: 40px;
-        border-radius: 20px;
-        font-size: 10px;
-        padding: 12px;
-    }
+@media (max-width: 376px) {
+  .imageOut {
+    column-count: 1;
+  }
+  .sizer {
+    width: 100%;
+  }
+  .wrapper {
+    width: 100%;
+    margin: 0.5%;
+  }
+  .contents.activeDesk,
+  .helper {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+  .btnAdd,
+  .btnPin,
+  .btnComplaine,
+  .link,
+  .linkSearch,
+  .btnAddDesk {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 10px;
+    padding: 12px;
+  }
 }
-@media (max-width:320px){
-    .imageOut{
-        column-count: 1;
-    }
-    .sizer {
-        width: 100%;
-    }
-    .wrapper {
-        width: 100%;
-        margin: 0.5%;
-    }
+@media (max-width: 320px) {
+  .imageOut {
+    column-count: 1;
+  }
+  .sizer {
+    width: 100%;
+  }
+  .wrapper {
+    width: 100%;
+    margin: 0.5%;
+  }
 }
