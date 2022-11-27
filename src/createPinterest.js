@@ -38,7 +38,7 @@ export function createPinterest(obj) {
   $(document).ready(function () {
     let container = $(".imageOut");
     container.imagesLoaded(function () {
-      $(".imageOut").masonry({
+      container.masonry({
         itemSelector: ".wrapper",
         columnWidth: ".sizer",
       });
